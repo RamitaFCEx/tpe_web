@@ -109,7 +109,7 @@ td {
 
 .foto_labrador, .foto_golden{
     width: 40%;
-    height: 19vh;
+    min-height: 180px;
     background-image: url(../img/labrador.jfif);
     background-size: cover;
 }
