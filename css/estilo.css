@@ -74,6 +74,11 @@ article{
     align-items: center;
     min-height: 120vh;
     background-color: rgb(222, 184, 135);
+    padding: 10px 0px;
+}
+
+article div {
+    margin-bottom: 5px;
 }
 
 
@@ -84,4 +89,36 @@ footer{
     justify-content: center;
     background-image: url(../img/vintage-logos2-footer.jpg);
     background-size: cover;
+}
+
+td {
+    border: solid 1px black;
+}
+
+
+.labrador, .golden {
+    display: flex;
+    flex-direction: row;
+    border: solid 1px black;
+    padding: 20px;
+    width: 600px;
+
+}
+
+
+
+.foto_labrador, .foto_golden{
+    width: 40%;
+    height: 19vh;
+    background-image: url(../img/labrador.jfif);
+    background-size: cover;
+}
+
+.foto_golden {
+    background-image: url(../img/golden.jfif);
+}
+
+.lista_labrador, .lista_golden {
+    width: 60%;
+    padding: 0px 20px;
 }
