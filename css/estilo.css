@@ -47,7 +47,6 @@ nav ul{
 nav ul li{
     display: inline-block;
     text-transform: uppercase;
-
 }
 
 nav ul li a{
@@ -56,7 +55,6 @@ nav ul li a{
     color: rgb(240, 255, 255);
     font-weight: 900;
     font-style: italic;
-   
 }
 
 nav ul li a:hover{
@@ -91,15 +89,23 @@ footer{
     background-size: cover;
 }
 
+
+
+thead td{
+    text-align: center;
+    font-weight: 900
+}
+
 td {
-    border: solid 1px black;
+    border: solid 1px rgb(0, 0, 0);
+    padding: 5px;
 }
 
 
 .seccion_perro {
     display: flex;
     flex-direction: row;
-    border: solid 1px black;
+    border: solid 1px rgb(0, 0, 0);
     padding: 20px;
     width: 600px;
 
