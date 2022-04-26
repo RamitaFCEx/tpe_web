@@ -96,7 +96,7 @@ td {
 }
 
 
-.labrador, .golden {
+.seccion_perro {
     display: flex;
     flex-direction: row;
     border: solid 1px black;
@@ -110,8 +110,11 @@ td {
 .foto_labrador, .foto_golden{
     width: 40%;
     min-height: 180px;
-    background-image: url(../img/labrador.jfif);
     background-size: cover;
+}
+
+.foto_labrador{
+    background-image: url(../img/labrador.jfif);   
 }
 
 .foto_golden {
