@@ -134,3 +134,20 @@ td {
     width: 60%;
     padding: 0px 20px;
 }
+
+
+.contenedor_img_captcha{
+    height: 20vh;
+    width: 30vw;
+    background-image: url(../img/fondo_captcha.jpg);
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenedor_img_captcha #texto_captcha{
+    color: rgb(255, 238, 213);
+    font-weight: 900;
+    font-size: 15vh;
+}
