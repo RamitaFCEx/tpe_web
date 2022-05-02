@@ -16,7 +16,25 @@ textoClave = clave.join("");
 console.log(textoClave);
 }
 
+function comprobarCaptcha(){
+    if(respuestaCaptcha.value == textoClave){//compara
+        resultado_captcha.innerHTML = "Validado";
+    } else{
+        resultado_captcha.innerHTML = "Rechazado";
+    }
+    return false;
+    
+}
+
 generador();
 
-let titulo = document.querySelector("#texto_captcha");
+let titulo = document.querySelector("#texto_captcha");//captcha que se muestra en pantalla
 titulo.innerHTML = textoClave;
+
+let resultado_captcha = document.querySelector("#resultado_captcha");//h4 que dice si se valido o no
+
+let respuestaCaptcha = document.querySelector("#respuestaCaptcha");// respuesta del humano al captcha
+
+let boton_captcha = document.querySelector("#boton_captcha");
+
+boton_captcha.addEventListener("click", comprobarCaptcha);
