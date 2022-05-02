@@ -26,8 +26,22 @@
     </header>
     <article>
         
-        <form action="">
-            <input type="text">
+        <form class="formulario" action="">
+            <h3 class="controles">Formulario</h3>
+            <p>Nombre</p>
+            <input type="text"  name="nombre">
+            <p>Correo electronico</p>
+            <input type="text" name="correo">
+          <div class="controles"> 
+              <h3>Frecuencia de actualizaciones</h3>
+           <b>Diaria</b> <input type="radio" name="frecuencia">
+           <b>Semanal</b> <input type="radio" name="frecuencia">
+           <b>Mensual</b> <input type="radio" name="frecuencia">
+          </div>
+
+            <p class="controles"> Al enviar este formulario aceptarias los terminos y condiciones</p>
+            <input type="checkbox">
+            <button id="boton_captcha" class="controles" type="submit">Enviar</button>
             <div class="contenedor_img_captcha"><p id="texto_captcha"></p></div>
         </form>
     </article>

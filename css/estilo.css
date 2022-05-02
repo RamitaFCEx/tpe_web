@@ -144,10 +144,25 @@ td {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 4px auto;
 }
 
 .contenedor_img_captcha #texto_captcha{
     color: rgb(255, 238, 213);
     font-weight: 900;
     font-size: 15vh;
+}
+
+.formulario {
+    width: 40vw;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 10px;
+    border: 3px solid rgb(82, 68, 95);
+    padding: 7px;
+}
+
+.controles {
+    margin: 6px 0px;
 }
