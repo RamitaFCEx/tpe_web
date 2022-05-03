@@ -16,13 +16,14 @@ textoClave = clave.join("");
 console.log(textoClave);
 }
 
-function comprobarCaptcha(){
+function comprobarCaptcha(e){
+    e.preventDefault();
     if(respuestaCaptcha.value == textoClave){//compara
         resultado_captcha.innerHTML = "Validado";
     } else{
         resultado_captcha.innerHTML = "Rechazado";
     }
-    return false;
+    
     
 }
 
