@@ -28,7 +28,7 @@ function comprobarCaptcha(e){
         resultado_captcha.classList.remove("esperandoCaptha","validandoCaptcha");
     }
 }
-
+/*asd*/ 
 
 generador();
 
