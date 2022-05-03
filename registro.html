@@ -29,10 +29,10 @@
         <form class="formulario" action="">
             <h3 class="controles">Formulario</h3>
             <label class="controles">Nombre:</label>
-            <input type="text"  name="nombre" required>
+            <input type="text"  name="nombre" class="form_inputs" required>
 
             <label class="controles">Correo electronico:</label>
-            <input type="email" name="correo" required>
+            <input type="email" name="correo" class="form_inputs" required>
 
             <label class="controles">Frecuencia de actualizaciones</label>
                 <div class="seleccion_frecuencia"> 
@@ -43,11 +43,13 @@
 
             <p class="controles"> Al enviar este formulario aceptarias los terminos y condiciones</p>
             <input type="checkbox">
+
             <div class="contenedor_img_captcha" class="controles"><p id="texto_captcha"></p></div>
-            <input class="controles" type="text" name="captcha_escrito" id="respuestaCaptcha" >
+
+            <input class="controles form_inputs" type="text" name="captcha_escrito" id="respuestaCaptcha">
             <h4 class="esperandoCaptha" id="resultado_captcha">Esperando</h4>
 
-            <button id="boton_captcha" class="controles" >Enviar</button>
+            <button id="boton_captcha" class="controles form_inputs" >Enviar</button>
         </form>
         
 
