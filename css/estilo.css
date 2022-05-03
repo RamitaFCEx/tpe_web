@@ -115,7 +115,7 @@ td {
     border: solid 4px rgb(35, 1, 75);
     padding: 20px;
     width: 600px;
-    height: 32vh;
+    height: 36vh;
     border-radius: 15px;
 }
 
@@ -129,11 +129,19 @@ td {
     height: 100%;
     width: 100%;
     object-fit: cover;
+    border-radius: 50%;
 }
 
 .lista_labrador, .lista_golden {
     width: 60%;
-    padding: 0px 20px;
+    padding: 0px 20px 0px 50px;
+}
+
+.lista_labrador h2, .lista_golden h2{
+    margin-bottom: 10px;
+    text-decoration: underline;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-style: italic;
 }
 
 
