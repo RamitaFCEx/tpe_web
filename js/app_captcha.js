@@ -4,28 +4,38 @@ let clave = [];
 let textoClave;
 
 function generador(){
-for (i=0; i<5; i++){
-  console.log("-----");
-  let indice = Math.floor(Math.random()*11);
-  console.log(posiblesCaracteres[indice]);
+    for (i=0; i<5; i++){
+        console.log("-----");
+        let indice = Math.floor(Math.random()*11);
+        console.log(posiblesCaracteres[indice]);
 
-clave.push(posiblesCaracteres[indice])
+        clave.push(posiblesCaracteres[indice])
+    }
+
+    textoClave = clave.join("");
+    console.log(textoClave);
 }
 
-textoClave = clave.join("");
-console.log(textoClave);
-}
-
+<<<<<<< HEAD
 function comprobarCaptcha(e){
     e.preventDefault();
     if(respuestaCaptcha.value == textoClave){//compara
         resultado_captcha.innerHTML = "Validado";
+=======
+function comprobarCaptcha(){
+    if((respuestaCaptcha.value == textoClave)){//compara
+        resultado_captcha.innerHTML = "Captcha Validado";
+>>>>>>> fed6eaa37320bebe8d3e8204610d45f871edd687
     } else{
-        resultado_captcha.innerHTML = "Rechazado";
+        resultado_captcha.innerHTML = "Captcha Rechazado";
     }
+<<<<<<< HEAD
     
+=======
+>>>>>>> fed6eaa37320bebe8d3e8204610d45f871edd687
     
 }
+
 
 generador();
 
@@ -39,3 +49,5 @@ let respuestaCaptcha = document.querySelector("#respuestaCaptcha");// respuesta 
 let boton_captcha = document.querySelector("#boton_captcha");
 
 boton_captcha.addEventListener("click", comprobarCaptcha);
+
+

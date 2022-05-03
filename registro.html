@@ -28,25 +28,41 @@
         
         <form class="formulario" action="">
             <h3 class="controles">Formulario</h3>
-            <p>Nombre</p>
-            <input type="text"  name="nombre">
-            <p>Correo electronico</p>
-            <input type="text" name="correo">
-          <div class="controles"> 
-              <h3>Frecuencia de actualizaciones</h3>
-           <b>Diaria</b> <input type="radio" name="frecuencia">
-           <b>Semanal</b> <input type="radio" name="frecuencia">
-           <b>Mensual</b> <input type="radio" name="frecuencia">
-          </div>
+            <label class="controles">Nombre:</label>
+            <input type="text"  name="nombre" required>
+
+            <label class="controles">Correo electronico:</label>
+            <input type="email" name="correo" required>
+
+            <label class="controles">Frecuencia de actualizaciones</label>
+                <div class="seleccion_frecuencia"> 
+                <label>Diaria</label><input type="radio" name="frecuencia">
+                <label>Semanal</label><input type="radio" name="frecuencia">
+                <label>Mensual</label><input type="radio" name="frecuencia">
+                </div>
 
             <p class="controles"> Al enviar este formulario aceptarias los terminos y condiciones</p>
+<<<<<<< HEAD
             <input type="checkbox">
             <div class="contenedor_img_captcha" class="controles"><p id="texto_captcha"></p></div>
             <input class="controles" type="text" name="captcha_escrito" id="respuestaCaptcha" >
             <button id="boton_captcha" class="controles" >Enviar</button>
+=======
+            <input type="checkbox" required>
+
+            <div class="contenedor_img_captcha" class="controles">
+                <p id="texto_captcha"></p>
+            </div>
+
+            <input class="controles" type="text" name="captcha_escrito" id="respuestaCaptcha" required>
+            <h4 class="controles resultado_captcha_espera" id="resultado_captcha">Esperando Captcha</h4>
+
+
+            <button id="boton_captcha" class="controles">Enviar</button>
+>>>>>>> fed6eaa37320bebe8d3e8204610d45f871edd687
         </form>
 
-        <h4 id="resultado_captcha">Esperando</h4>
+
 
 
     </article>
