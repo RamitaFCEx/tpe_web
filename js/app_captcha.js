@@ -16,24 +16,17 @@ function generador(){
     console.log(textoClave);
 }
 
-<<<<<<< HEAD
 function comprobarCaptcha(e){
     e.preventDefault();
     if(respuestaCaptcha.value == textoClave){//compara
         resultado_captcha.innerHTML = "Validado";
-=======
-function comprobarCaptcha(){
-    if((respuestaCaptcha.value == textoClave)){//compara
-        resultado_captcha.innerHTML = "Captcha Validado";
->>>>>>> fed6eaa37320bebe8d3e8204610d45f871edd687
+        resultado_captcha.classList.add("validandoCaptcha");
+        resultado_captcha.classList.remove("esperandoCaptha","rechazandoCaptcha");
     } else{
-        resultado_captcha.innerHTML = "Captcha Rechazado";
+        resultado_captcha.innerHTML = "Rechazado";
+        resultado_captcha.classList.add("rechazandoCaptcha");
+        resultado_captcha.classList.remove("esperandoCaptha","validandoCaptcha");
     }
-<<<<<<< HEAD
-    
-=======
->>>>>>> fed6eaa37320bebe8d3e8204610d45f871edd687
-    
 }
 
 

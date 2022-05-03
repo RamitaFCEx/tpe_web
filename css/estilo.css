@@ -179,3 +179,26 @@ td {
     width: 20vw;
     padding: 5px;
 }
+
+.esperandoCaptha{
+    background-color: rgb(240, 182, 36);
+}
+
+.rechazandoCaptcha{
+    background-color: rgb(240, 67, 36);
+}
+
+.validandoCaptcha{
+    background-color: rgb(101, 240, 36);
+}
+
+
+
+#resultado_captcha{
+    padding: 7px;
+    width: 30%;
+    align-self: center;
+    text-align: center;
+    border-radius: 10px;
+    border: 4px solid rgb(82, 68, 95);
+}
