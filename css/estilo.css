@@ -85,6 +85,12 @@ article{
     padding: 10px 0px;
 }
 
+article.index_article{
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
 article div {
     margin-bottom: 5px;
 }
@@ -120,7 +126,7 @@ td {
     flex-direction: row;
     border: solid 4px rgb(35, 1, 75);
     padding: 20px;
-    width: 600px;
+    width: 79vh;
     height: 36vh;
     border-radius: 15px;
 }
