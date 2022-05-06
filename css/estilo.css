@@ -162,6 +162,7 @@ td {
 .contenedor_img_captcha{
     height: 20vh;
     width: 30vw;
+    min-width: 231px;
     background-image: url(../img/fondo_captcha.jpg);
     background-size: cover;
     display: flex;
@@ -179,6 +180,7 @@ td {
 
 .formulario {
     width: 40vw;
+    min-width: 249px;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -220,6 +222,7 @@ td {
 #resultado_captcha{/*Estilo del cartel de validacion de captcha*/
     padding: 7px;
     width: 22%;
+    min-width: 95px;
     align-self: flex-end;
     text-align: center;
     border-radius: 10px;
@@ -232,4 +235,13 @@ border-radius: 10px;
 padding: 9px;
 width: 30%;
 align-self: center;
+font-weight: 900;
+}
+
+#boton_captcha:hover{
+    background-color: rgb(174, 49, 236);
+}
+
+#boton_captcha:active{
+    background-color: rgb(214, 132, 255);
 }
