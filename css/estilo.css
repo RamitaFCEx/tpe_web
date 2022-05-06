@@ -125,6 +125,7 @@ td {
     display: flex;
     flex-direction: row;
     border: solid 4px rgb(35, 1, 75);
+    background-color: rgb(240, 213, 178);
     padding: 20px;
     width: 79vh;
     height: 36vh;
@@ -142,6 +143,7 @@ td {
     width: 100%;
     object-fit: cover;
     border-radius: 50%;
+    outline: 4px rgb(35, 1, 75) solid;
 }
 
 .lista_labrador, .lista_golden {
@@ -166,6 +168,7 @@ td {
     justify-content: center;
     align-items: center;
     margin: 4px auto;
+    border-radius: 20px;
 }
 
 .contenedor_img_captcha #texto_captcha{
@@ -182,6 +185,7 @@ td {
     border-radius: 10px;
     border: 3px solid rgb(82, 68, 95);
     padding: 7px;
+    background-color: rgb(240, 213, 178);
 }
 
 .controles {/*Estilo de inputs*/
