@@ -45,6 +45,7 @@ header .logoytitulo .titulo img{
 
 nav{
     background-color: rgb(165, 42, 42);
+    border: 1px solid black;
 }
 
 nav ul{
@@ -188,6 +189,18 @@ td {
     border: 3px solid rgb(82, 68, 95);
     padding: 7px;
     background-color: rgb(240, 213, 178);
+}
+
+ td {
+    border: 2px solid black;
+}
+
+thead {
+    background-color: rgb(189, 52, 52);
+}
+
+.color-form {
+    background-color: rgb(216, 87, 87) ;
 }
 
 .controles {/*Estilo de inputs*/
