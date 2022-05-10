@@ -1,3 +1,5 @@
+/*---------------------PRIMERA PARTE, COMUN A TODAS LAS PAGINAS-------------------------------------------*/
+
 *{
     box-sizing: border-box;
     padding: 0;
@@ -110,12 +112,21 @@ footer img{
     width: 100%;
 }
 
-table{
+
+/*-----------------------------TODO LO ANTERIOR ES COMUN A TODAS LAS ------------------------------------------------PAGINAS------------------------------------------------------*/
+
+
+/*--------------------LO SIGUIENTE CORRESPONDE A contacto.html----------------------------------------*/
+
+.contenedor_tabla{
     margin-top: 3vh;
-    padding: 15px;
     border: solid 4px rgb(35, 1, 75);
-    background-color: rgb(240, 213, 178);
     border-radius: 10px;
+    background-color: rgb(240, 213, 178);
+}
+
+table{
+    padding: 15px;
     border-spacing: 0;
 }
 
@@ -143,6 +154,11 @@ tbody td:first-child{
     background-color: rgb(238, 102, 102) ;
 }
 
+/*-----------------------------------------------------------------------------------*/
+
+
+
+/*--------------------LO SIGUIENTE CORRESPONDE A index.html----------------------------------------*/
 .seccion_perro {
     display: flex;
     flex-direction: row;
@@ -180,6 +196,8 @@ tbody td:first-child{
     font-style: italic;
 }
 
+
+/*--------------------LO SIGUIENTE CORRESPONDE A registro.html----------------------------------------*/
 
 .contenedor_img_captcha{
     height: 20vh;
