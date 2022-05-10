@@ -45,7 +45,8 @@ header .logoytitulo .titulo img{
 
 nav{
     background-color: rgb(165, 42, 42);
-    border: 1px solid black;
+    outline: 2px solid #000000;
+    margin-bottom: 2px;
 }
 
 nav ul{
@@ -109,18 +110,38 @@ footer img{
     width: 100%;
 }
 
-
+table{
+    margin-top: 3vh;
+    padding: 15px;
+    border: solid 4px rgb(35, 1, 75);
+    background-color: rgb(240, 213, 178);
+    border-radius: 10px;
+    border-spacing: 0;
+}
 
 thead td{
     text-align: center;
-    font-weight: 900
+    font-weight: 900;
 }
 
 td {
-    border: solid 1px rgb(0, 0, 0);
-    padding: 5px;
+    padding: 7px;
 }
 
+thead {
+    background-color: rgb(189, 52, 52);
+}
+
+tbody td:first-child{
+    border-right: 3px solid rgb(189, 52, 52);
+}
+
+.color-form1 {
+    background-color: rgb(245, 141, 141) ;
+}
+.color-form2 {
+    background-color: rgb(238, 102, 102) ;
+}
 
 .seccion_perro {
     display: flex;
@@ -186,22 +207,11 @@ td {
     justify-content: center;
     flex-direction: column;
     border-radius: 10px;
-    border: 3px solid rgb(82, 68, 95);
+    border: 3px solid rgb(35, 1, 75);
     padding: 7px;
     background-color: rgb(240, 213, 178);
 }
 
- td {
-    border: 2px solid black;
-}
-
-thead {
-    background-color: rgb(189, 52, 52);
-}
-
-.color-form {
-    background-color: rgb(216, 87, 87) ;
-}
 
 .controles {/*Estilo de inputs*/
     margin: 6px 0px;
