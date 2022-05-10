@@ -173,7 +173,6 @@ tbody td:first-child{
 .foto_perro{
     width: 40%;
     height: 100%;
-         /*height 171*/
 }
 
 .foto_perro img{
@@ -184,12 +183,12 @@ tbody td:first-child{
     outline: 4px rgb(35, 1, 75) solid;
 }
 
-.lista_labrador, .lista_golden {
+.lista_golden {
     width: 60%;
     padding: 0px 20px 0px 50px;
 }
 
-.lista_labrador h2, .lista_golden h2{
+.lista_golden h2{
     margin-bottom: 10px;
     text-decoration: underline;
     font-family: Georgia, 'Times New Roman', Times, serif;
