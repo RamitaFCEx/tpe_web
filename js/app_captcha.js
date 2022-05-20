@@ -1,19 +1,18 @@
 /*-ESTE SITIO FUE DESARROLLADO POR DIAZ MANUEL(C2) Y MEZA RAMIRO(C11) GRUPO 10----------------------------*/
 
+"use strict";
 const posiblesCaracteres = ['a', 'g', 'e', '4', 'r', 'p', '6', 'y', 'k','u','8'];
 
 let clave = [];//ACA SE GUARDAN LOS CARACTERES DEL CAPTCHA POR SEPARADO
-let textoClave;//ACA SE GUARDA EL CAPTCHA EN FORMA DE STRING
+let textoClave = "";//ACA SE GUARDA EL CAPTCHA EN FORMA DE STRING
 
 function generador(){//ACA SE CREA EL CAPTCHA
-    for (i=0; i<5; i++){
+    for (let i=0; i<5; i++){
         //console.log("-----");
         let indice = Math.floor(Math.random()*11);
         //console.log(posiblesCaracteres[indice]);
-
         clave.push(posiblesCaracteres[indice])
     }
-
     textoClave = clave.join("");
     console.log(textoClave);
 }
@@ -43,5 +42,4 @@ let respuestaCaptcha = document.querySelector("#respuestaCaptcha");// respuesta 
 let boton_captcha = document.querySelector("#boton_captcha");
 
 boton_captcha.addEventListener("click", comprobarCaptcha);
-
 
