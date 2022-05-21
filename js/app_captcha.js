@@ -14,7 +14,14 @@ let respuestaCaptcha = document.querySelector("#respuestaCaptcha");// respuesta 
 
 let boton_captcha = document.querySelector("#boton_captcha");
 
-boton_captcha.addEventListener("click", comprobarCaptcha);
+boton_captcha.addEventListener('click', comprobarCaptcha);
+
+
+let formulario = document.querySelector("#formulario");
+formulario.addEventListener('submit', imprimir);
+
+let tablaDinamica = document.querySelector(".cuerpo_tablaD");
+
 
 function generador(textoClave){//ACA SE CREA EL CAPTCHA
     let textoClaveGenerador = textoClave;
@@ -28,8 +35,7 @@ function generador(textoClave){//ACA SE CREA EL CAPTCHA
     return textoClaveGenerador;
 }
 
-function comprobarCaptcha(e){
-    e.preventDefault();
+function comprobarCaptcha(){
     if(respuestaCaptcha.value == textoClave){//compara
         resultado_captcha.innerHTML = "Validado";
         resultado_captcha.classList.add("validandoCaptcha");
@@ -41,9 +47,58 @@ function comprobarCaptcha(e){
     }
 }
 
+/////////////////Arriba estable
+
+let usuarioPorDefecto1 = ["Fidel Castro", "elFideee@gmail.com"];
+let usuarioPorDefecto2 = ["Benedicto XVI", "beniGGWP@gmail.com"];
+let usuarioPorDefecto3 = ["Aristobulo Delvalle", "delvalle_ahri@gmail.com"];
+
+tablaDinamica.innerHTML = `<tr><td>${usuarioPorDefecto1[0]}</td><td>${usuarioPorDefecto1[1]}</td><td>True</td></tr><tr><td>${usuarioPorDefecto2[0]}</td><td>${usuarioPorDefecto2[1]}</td><td>True</td></tr><tr><td>${usuarioPorDefecto3[0]}</td><td>${usuarioPorDefecto3[1]}</td><td>True</td></tr>`;
 
 
+let botonReiniciar = document.querySelector("#boton_reiniciar");
+botonReiniciar.addEventListener("click", reiniciar);
 
+let botonEnviar3 = document.querySelector("#boton_enviar_3");
+botonEnviar3.addEventListener("click", enviar3);
+
+function enviar3(){
+    console.log("por 3")
+    for(let i = 0; i<3;i++){
+    let formData = new FormData(formulario);
+
+    //Captura de datos:
+    let nombre = formData.get("nombre");
+    let correo = formData.get("correo");
+
+    if(respuestaCaptcha.value == textoClave){
+        tablaDinamica.innerHTML += `<tr><td>${nombre}</td><td>${correo}</td><td>True</td></tr>`
+        console.log(`El usuario ${nombre} tiene el correo ${correo}`);
+    }
+    }
+}
+
+function reiniciar(){
+    tablaDinamica.innerHTML = "";
+    usuarioPorDefecto1 = [];
+    usuarioPorDefecto2 = [];
+    usuarioPorDefecto3 = [];
+    console.log("reinicio");
+}
+
+function imprimir(e){
+    e.preventDefault();
+    let formData = new FormData(formulario);
+
+    //Captura de datos:
+    let nombre = formData.get("nombre");
+    let correo = formData.get("correo");
+
+    if(respuestaCaptcha.value == textoClave){
+        tablaDinamica.innerHTML += `<tr><td>${nombre}</td><td>${correo}</td><td>True</td></tr>`
+        console.log(`El usuario ${nombre} tiene el correo ${correo}`);
+    }
+}
 
 
 textoClave = generador(textoClave);
