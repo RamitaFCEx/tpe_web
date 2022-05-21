@@ -41,6 +41,11 @@ function comprobarCaptcha(e){
     }
 }
 
+
+
+
+
+
 textoClave = generador(textoClave);
 titulo.innerHTML = textoClave;
 
