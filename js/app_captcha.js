@@ -57,12 +57,16 @@ tablaDinamica.innerHTML = `<tr><td>${usuarioPorDefecto1[0]}</td><td>${usuarioPor
 
 
 let botonReiniciar = document.querySelector("#boton_reiniciar");
-botonReiniciar.addEventListener("click", reiniciar);
+botonReiniciar.addEventListener("click", function(){
+    tablaDinamica.innerHTML = "";
+    usuarioPorDefecto1 = [];
+    usuarioPorDefecto2 = [];
+    usuarioPorDefecto3 = [];
+    console.log("reinicio");
+});
 
 let botonEnviar3 = document.querySelector("#boton_enviar_3");
-botonEnviar3.addEventListener("click", enviar3);
-
-function enviar3(){
+botonEnviar3.addEventListener("click", function(){
     console.log("por 3")
     for(let i = 0; i<3;i++){
     let formData = new FormData(formulario);
@@ -76,15 +80,8 @@ function enviar3(){
         console.log(`El usuario ${nombre} tiene el correo ${correo}`);
     }
     }
-}
+});
 
-function reiniciar(){
-    tablaDinamica.innerHTML = "";
-    usuarioPorDefecto1 = [];
-    usuarioPorDefecto2 = [];
-    usuarioPorDefecto3 = [];
-    console.log("reinicio");
-}
 
 function imprimir(e){
     e.preventDefault();
