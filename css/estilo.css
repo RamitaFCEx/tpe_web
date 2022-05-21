@@ -27,22 +27,12 @@ header{
     height: 6.86vw;
 }
 
-header .logoytitulo .imagen_titulo{
+header div img.logo_OneShot{
     width: 7%;
 }
 
-header .logoytitulo .titulo{
+header div img.titulo_OneShot{
     width: 93%;
-}
-
-header .logoytitulo .imagen_titulo img{
-    height: 100%;
-    width: 100%;
-}
-
-header .logoytitulo .titulo img{
-    height: 100%;
-    width: 100%;
 }
 
 nav{
@@ -183,12 +173,13 @@ tbody td:first-child{
     outline: 4px rgb(35, 1, 75) solid;
 }
 
-.lista_golden {
+.lista_perro {
     width: 60%;
     padding: 0px 20px 0px 50px;
+    overflow: hidden;
 }
 
-.lista_golden h2{
+.lista_perro h2{
     margin-bottom: 10px;
     text-decoration: underline;
     font-family: Georgia, 'Times New Roman', Times, serif;
