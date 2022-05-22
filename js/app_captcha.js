@@ -53,7 +53,24 @@ let usuarioPorDefecto1 = ["Fidel Castro", "elFideee@gmail.com"];
 let usuarioPorDefecto2 = ["Benedicto XVI", "beniGGWP@gmail.com"];
 let usuarioPorDefecto3 = ["Aristobulo Delvalle", "delvalle_ahri@gmail.com"];
 
-tablaDinamica.innerHTML = `<tr><td>${usuarioPorDefecto1[0]}</td><td>${usuarioPorDefecto1[1]}</td><td>True</td></tr><tr><td>${usuarioPorDefecto2[0]}</td><td>${usuarioPorDefecto2[1]}</td><td>True</td></tr><tr><td>${usuarioPorDefecto3[0]}</td><td>${usuarioPorDefecto3[1]}</td><td>True</td></tr>`;
+tablaDinamica.innerHTML = 
+`
+<tr class="color-form1">
+<td>${usuarioPorDefecto1[0]}</td>
+<td>${usuarioPorDefecto1[1]}</td>
+<td>True</td>
+</tr>
+<tr>
+<td>${usuarioPorDefecto2[0]}</td>
+<td>${usuarioPorDefecto2[1]}</td>
+<td>True</td>
+</tr>
+<tr class="color-form1">
+<td>${usuarioPorDefecto3[0]}</td>
+<td>${usuarioPorDefecto3[1]}</td>
+<td>True</td>
+</tr>
+`;
 
 
 let botonReiniciar = document.querySelector("#boton_reiniciar");
@@ -76,7 +93,13 @@ botonEnviar3.addEventListener("click", function(){
     let correo = formData.get("correo");
 
     if(respuestaCaptcha.value == textoClave){
-        tablaDinamica.innerHTML += `<tr><td>${nombre}</td><td>${correo}</td><td>True</td></tr>`
+        tablaDinamica.innerHTML += `
+        <tr class="color-form1">
+        <td>${nombre}</td>
+        <td>${correo}</td>
+        <td>True</td>
+        </tr>
+        `
         console.log(`El usuario ${nombre} tiene el correo ${correo}`);
     }
     }
@@ -96,6 +119,7 @@ function imprimir(e){
         console.log(`El usuario ${nombre} tiene el correo ${correo}`);
     }
 }
+
 
 
 textoClave = generador(textoClave);
