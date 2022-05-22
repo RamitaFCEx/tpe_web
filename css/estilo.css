@@ -294,7 +294,6 @@ font-weight: 900;
         display: grid;
         grid-template-columns: 100%;
         grid-template-areas: 
-        "header"
         "grid-1"
         "grid-2"
         "grid-3"
