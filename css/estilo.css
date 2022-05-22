@@ -290,7 +290,7 @@ font-weight: 900;
 
 
 @media only screen and (max-width:660px) {
-    article {
+    .index_article {
         display: grid;
         grid-template-columns: 100%;
         grid-template-areas: 
@@ -307,7 +307,7 @@ font-weight: 900;
         width: auto;
         
     }
-    
+
     
 
 }
