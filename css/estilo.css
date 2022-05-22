@@ -134,14 +134,15 @@ thead {
 }
 
 tbody td:first-child{
-    border-right: 3px solid rgb(189, 52, 52);
+    border-left: 3px solid rgb(189, 52, 52);
 }
 
-tbody td:nth-child(2){
+tbody tr > td{
     border-right: 3px solid rgb(189, 52, 52);
+    border-bottom: 3px solid rgb(189, 52, 52);
 }
 
-.color-form1 {
+.color-form1, tbody.cuerpo_tablaD tr > td {
     background-color: rgb(245, 141, 141) ;
 }
 .color-form2 {
@@ -285,4 +286,6 @@ font-weight: 900;
 .boton_form:active{
     background-color: rgb(214, 132, 255);
 }
+
+
 
