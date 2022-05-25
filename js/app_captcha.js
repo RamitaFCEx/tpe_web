@@ -1,8 +1,6 @@
 /*-ESTE SITIO FUE DESARROLLADO POR DIAZ MANUEL(C2) Y MEZA RAMIRO(C11) GRUPO 10----------------------------*/
 "use strict";
 const posiblesCaracteres = ['a', 'g', 'e', '4', 'r', 'p', '6', 'y', 'k','u','8'];
-
-
 let textoClave = "";//ACA SE GUARDA EL CAPTCHA EN FORMA DE STRING
 
 let usuarioPorDefecto1 = ["Fidel Castro", "elFideee@gmail.com"];
@@ -50,7 +48,27 @@ function comprobarCaptcha(){
     }
 }
 /////////////////Arriba estable
-tablaDinamica.innerHTML = `<tr><td>${usuarioPorDefecto1[0]}</td><td>${usuarioPorDefecto1[1]}</td><td>True</td></tr><tr><td>${usuarioPorDefecto2[0]}</td><td>${usuarioPorDefecto2[1]}</td><td>True</td></tr><tr><td>${usuarioPorDefecto3[0]}</td><td>${usuarioPorDefecto3[1]}</td><td>True</td></tr>`;
+
+///Datos precargados en tabla dinamica
+tablaDinamica.innerHTML = 
+`
+<tr class="color-form1">
+<td>${usuarioPorDefecto1[0]}</td>
+<td>${usuarioPorDefecto1[1]}</td>
+<td>True</td>
+</tr>
+<tr>
+<td>${usuarioPorDefecto2[0]}</td>
+<td>${usuarioPorDefecto2[1]}</td>
+<td>True</td>
+</tr>
+<tr class="color-form1">
+<td>${usuarioPorDefecto3[0]}</td>
+<td>${usuarioPorDefecto3[1]}</td>
+<td>True</td>
+</tr>
+`;///Datos precargados en tabla dinamica
+
 
 let botonReiniciar = document.querySelector("#boton_reiniciar");
 botonReiniciar.addEventListener("click", function(){
@@ -67,7 +85,8 @@ botonEnviar3.addEventListener("click", function(e){
     let comprobacion = comprobarCaptcha();
     if (comprobacion === 1){
     for(let i = 0; i<3;i++){
-        imprimir(e);
+    let formData = new FormData(formulario);
+    imprimir(e);
     }
     }
 });
