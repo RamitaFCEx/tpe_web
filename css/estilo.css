@@ -308,6 +308,10 @@ font-weight: 900;
         "grid-5"
         "grid-6";
     } */
+
+    .img_prueba{
+        filter: sepia(50);
+    }
     
     header div.logoytitulo{
         height: 10vh;
@@ -374,7 +378,6 @@ font-weight: 900;
 
     .lista_perro{
         width: 70%;
-        overflow-x: scroll;
         padding: 0 0 0 25px;
     }
 
@@ -383,4 +386,13 @@ font-weight: 900;
         width: 40%;
         height: 60%;
     }
+
+
+
+
+
+    .contenedor_img_captcha #texto_captcha {
+        font-size: 6em;
+    }
+
 }

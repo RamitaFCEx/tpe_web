@@ -76,7 +76,7 @@ botonReiniciar.addEventListener("click", function(){
     usuarioPorDefecto1 = [];
     usuarioPorDefecto2 = [];
     usuarioPorDefecto3 = [];
-    console.log("reinicio");
+    //console.log("reinicio");
 });
 
 let botonEnviar3 = document.querySelector("#boton_enviar_3");
@@ -85,7 +85,7 @@ botonEnviar3.addEventListener("click", function(e){
     let comprobacion = comprobarCaptcha();
     if (comprobacion === 1){
     for(let i = 0; i<3;i++){
-    let formData = new FormData(formulario);
+    // let formData = new FormData(formulario);
     imprimir(e);
     }
     }
