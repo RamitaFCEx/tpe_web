@@ -145,9 +145,9 @@ function crearUsuario(usuario, nombre, correo, favorito){
         "favorito": favorito
     }
     usuario.push(usuarioC);
-    for(let i = 0; i<usuario.length; i++){
-        console.log(usuario[i]);
-    }
+    // for(let i = 0; i<usuario.length; i++){
+    //     console.log(usuario[i]);
+    // }
 }
 
 textoClave = generador(textoClave);

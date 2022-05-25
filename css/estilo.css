@@ -17,6 +17,7 @@ header{
     flex-direction: column;
     justify-content: flex-start;
     width: 100%;
+    background-color: #000;
 }
 
 header div.logoytitulo{
@@ -82,7 +83,7 @@ article{
     flex-direction: column;
     align-items: center;
     min-height: 120vh;
-    background-color: #F0C662;
+    background-color: #F0C664;
     padding: 10px 0px;
 }
 
@@ -326,7 +327,7 @@ tbody.cuerpo_tablaD tr > td.favoritos {
         content: url(../img/vintage_logos2_celular2.jpg);
     }
 
-    
+   
 
     header nav ul.menu_desktop{
         display: none;
