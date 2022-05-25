@@ -26,7 +26,7 @@
                 <li><a href="registro.html">registro</a></li>
             </ul>
             <div class="container_menu_responsive">
-            <img src="img/menu.png" alt="prueba" class="img_prueba">
+            <img src="img/menu.jpg" alt="prueba" class="img_prueba">
             <ul class="menu_responsive">
                 <li><a href="index.html">home</a></li>
                 <li><a href="contacto.html">contacto</a></li>
@@ -40,20 +40,20 @@
         
         <form class="formulario" action="" id="formulario">
             <h3 class="controles">Formulario</h3>
-            <label class="controles">Nombre:</label>
+            <label class="controles" for="nombre">Nombre:</label>
             <input type="text"  name="nombre" class="form_inputs" required>
 
-            <label class="controles">Correo electronico:</label>
+            <label class="controles" for="correo">Correo electronico:</label>
             <input type="email" name="correo" class="form_inputs" required>
 
             <label class="controles">Frecuencia de actualizaciones</label>
                 <div class="seleccion_frecuencia"> 
-                <label>Diaria</label><input type="radio" name="frecuencia">
-                <label>Semanal</label><input type="radio" name="frecuencia">
-                <label>Mensual</label><input type="radio" name="frecuencia">
+                <label for="frecuencia">Diaria</label><input type="radio" name="frecuencia" value="frecuencia" id="diaria">
+                <label for="semanal">Semanal</label><input type="radio" name="frecuencia" value="frecuencia" id="semanal">
+                <label for="frecuencia">Mensual</label><input type="radio" name="frecuencia" value="mensual" id="mensual">
                 </div>
 
-            <label class="controles"> Al enviar este formulario aceptarias los terminos y condiciones</label>
+            <label class="controles" for="validacion"> Al enviar este formulario aceptarias los terminos y condiciones</label>
             <input name="validacion" type="checkbox" required>
 
             <div class="contenedor_img_captcha" class="controles"><p id="texto_captcha"></p></div>
@@ -77,6 +77,7 @@
                     <td>Nombres</td>
                     <td>Correo</td>
                     <td>Validado</td>
+                    <td>Favoritos</td>
                 </thead>
                 <tbody class="cuerpo_tablaD">
 

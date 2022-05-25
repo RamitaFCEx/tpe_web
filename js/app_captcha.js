@@ -19,6 +19,8 @@ let formulario = document.querySelector("#formulario");
 
 let tablaDinamica = document.querySelector(".cuerpo_tablaD");
 
+let usuario= [];
+
 
 function generador(textoClave){//ACA SE CREA EL CAPTCHA
     let clave = [];//ACA SE GUARDAN LOS CARACTERES DEL CAPTCHA POR SEPARADO
@@ -56,16 +58,19 @@ tablaDinamica.innerHTML =
 <td>${usuarioPorDefecto1[0]}</td>
 <td>${usuarioPorDefecto1[1]}</td>
 <td>True</td>
+<td>Si</td>
 </tr>
 <tr>
 <td>${usuarioPorDefecto2[0]}</td>
 <td>${usuarioPorDefecto2[1]}</td>
 <td>True</td>
+<td>No</td>
 </tr>
-<tr class="color-form1">
+<tr>
 <td>${usuarioPorDefecto3[0]}</td>
 <td>${usuarioPorDefecto3[1]}</td>
 <td>True</td>
+<td>Si</td>
 </tr>
 `;///Datos precargados en tabla dinamica
 
@@ -76,6 +81,7 @@ botonReiniciar.addEventListener("click", function(){
     usuarioPorDefecto1 = [];
     usuarioPorDefecto2 = [];
     usuarioPorDefecto3 = [];
+    usuario = [];
     //console.log("reinicio");
 });
 
@@ -91,6 +97,15 @@ botonEnviar3.addEventListener("click", function(e){
     }
 });
 
+function verificarFavorito(diaria){
+    if(diaria.checked == true){
+
+        return "Si";
+    }else{
+        return "No";
+    }
+}
+
 function imprimir(e){
     e.preventDefault();
     comprobarCaptcha();
@@ -99,10 +114,39 @@ function imprimir(e){
     //Captura de datos:
     let nombre = formData.get("nombre");
     let correo = formData.get("correo");
+    let diaria = document.querySelector("#diaria");
+    let favorito = verificarFavorito(diaria);
+    //   class="favoritos"
+    if((comprobacion === 1) && (favorito == "Si")){
+        tablaDinamica.innerHTML += `
+        <tr>
+        <td class="favoritos">${nombre}</td>
+        <td class="favoritos">${correo}</td>
+        <td class="favoritos">True</td>
+        <td class="favoritos">${favorito}</td>
+        </tr>`
+    }else{
+        tablaDinamica.innerHTML += `
+        <tr>
+        <td>${nombre}</td>
+        <td>${correo}</td>
+        <td>True</td>
+        <td>${favorito}</td>
+        </tr>`
+    }
+    crearUsuario(usuario, nombre, correo, favorito);
+}
 
-    if(comprobacion === 1){
-        tablaDinamica.innerHTML += `<tr><td>${nombre}</td><td>${correo}</td><td>True</td></tr>`
-        console.log(`El usuario ${nombre} tiene el correo ${correo}`);
+
+function crearUsuario(usuario, nombre, correo, favorito){
+    let usuarioC = {
+        "nombre" : nombre,
+        "correo" : correo,
+        "favorito": favorito
+    }
+    usuario.push(usuarioC);
+    for(let i = 0; i<usuario.length; i++){
+        console.log(usuario[i]);
     }
 }
 

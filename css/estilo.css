@@ -294,7 +294,9 @@ font-weight: 900;
     background-color: rgb(214, 132, 255);
 }
 
-
+tbody.cuerpo_tablaD tr > td.favoritos {
+    background-color: rgb(226, 241, 82);
+}
 
 @media only screen and (max-width:660px) {
     /* .index_article {
@@ -309,9 +311,6 @@ font-weight: 900;
         "grid-6";
     } */
 
-    .img_prueba{
-        filter: sepia(50);
-    }
     
     header div.logoytitulo{
         height: 10vh;
