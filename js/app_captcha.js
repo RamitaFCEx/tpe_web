@@ -1,9 +1,8 @@
 /*-ESTE SITIO FUE DESARROLLADO POR DIAZ MANUEL(C2) Y MEZA RAMIRO(C11) GRUPO 10----------------------------*/
-
 "use strict";
 const posiblesCaracteres = ['a', 'g', 'e', '4', 'r', 'p', '6', 'y', 'k','u','8'];
 
-let clave = [];//ACA SE GUARDAN LOS CARACTERES DEL CAPTCHA POR SEPARADO
+
 let textoClave = "";//ACA SE GUARDA EL CAPTCHA EN FORMA DE STRING
 
 let usuarioPorDefecto1 = ["Fidel Castro", "elFideee@gmail.com"];
@@ -14,8 +13,8 @@ let titulo = document.querySelector("#texto_captcha");//captcha que se muestra e
 
 let respuestaCaptcha = document.querySelector("#respuestaCaptcha");// respuesta del humano al captcha
 
-let boton_captcha = document.querySelector("#boton_captcha");
-boton_captcha.addEventListener('click', imprimir);
+let botonEnviar = document.querySelector("#boton_enviar");
+botonEnviar.addEventListener('click', imprimir);
 
 
 let formulario = document.querySelector("#formulario");
@@ -24,6 +23,7 @@ let tablaDinamica = document.querySelector(".cuerpo_tablaD");
 
 
 function generador(textoClave){//ACA SE CREA EL CAPTCHA
+    let clave = [];//ACA SE GUARDAN LOS CARACTERES DEL CAPTCHA POR SEPARADO
     let textoClaveGenerador = textoClave;
     for (let i=0; i<5; i++){
         //console.log("-----");
@@ -49,11 +49,8 @@ function comprobarCaptcha(){
         return -1;
     }
 }
-
 /////////////////Arriba estable
-
 tablaDinamica.innerHTML = `<tr><td>${usuarioPorDefecto1[0]}</td><td>${usuarioPorDefecto1[1]}</td><td>True</td></tr><tr><td>${usuarioPorDefecto2[0]}</td><td>${usuarioPorDefecto2[1]}</td><td>True</td></tr><tr><td>${usuarioPorDefecto3[0]}</td><td>${usuarioPorDefecto3[1]}</td><td>True</td></tr>`;
-
 
 let botonReiniciar = document.querySelector("#boton_reiniciar");
 botonReiniciar.addEventListener("click", function(){
@@ -63,7 +60,6 @@ botonReiniciar.addEventListener("click", function(){
     usuarioPorDefecto3 = [];
     console.log("reinicio");
 });
-
 
 let botonEnviar3 = document.querySelector("#boton_enviar_3");
 botonEnviar3.addEventListener("click", function(e){
@@ -76,22 +72,20 @@ botonEnviar3.addEventListener("click", function(e){
     }
 });
 
-
 function imprimir(e){
     e.preventDefault();
     comprobarCaptcha();
+    let comprobacion = comprobarCaptcha();
     let formData = new FormData(formulario);
-
     //Captura de datos:
     let nombre = formData.get("nombre");
     let correo = formData.get("correo");
 
-    if(respuestaCaptcha.value == textoClave){
+    if(comprobacion === 1){
         tablaDinamica.innerHTML += `<tr><td>${nombre}</td><td>${correo}</td><td>True</td></tr>`
         console.log(`El usuario ${nombre} tiene el correo ${correo}`);
     }
 }
-
 
 textoClave = generador(textoClave);
 titulo.innerHTML = textoClave;
