@@ -71,7 +71,7 @@ nav ul.menu_desktop li a:hover{
 }
 
 nav div.container_menu_responsive{
-    background-color: red;
+   
     display: none;
 }
 
@@ -357,20 +357,20 @@ tbody.cuerpo_tablaD tr > td.favoritos {
 
     nav div.container_menu_responsive img:hover ~ ul.menu_responsive li{
         background-color: #F0C662;
-        
+        margin: 0.2em 0;
     }
 
     nav div.container_menu_responsive img:hover ~ ul.menu_responsive li a{
         text-decoration: none;
         text-transform: uppercase;
-        color: red;
+        color: rgb(165, 42, 42);
         font-size: 3em;
+        padding-right: 70vw;
     }
-
-
-
-
-
+    span.iconos{
+        margin: 0 0.5em;
+        height: 9.8vh;
+    }
 
     .seccion_perro{
         width: 100%;
@@ -395,4 +395,11 @@ tbody.cuerpo_tablaD tr > td.favoritos {
         font-size: 6em;
     }
 
+    div#contenedor_tablaD table{
+        padding: 0;
+    }
+
+    div#contenedor_tablaD{
+        border-radius: 0;
+    }
 }
