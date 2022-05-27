@@ -7,6 +7,27 @@ let usuarioPorDefecto1 = ["Fidel Castro", "elFideee@gmail.com"];
 let usuarioPorDefecto2 = ["Benedicto XVI", "beniGGWP@gmail.com"];
 let usuarioPorDefecto3 = ["Aristobulo Delvalle", "delvalle_ahri@gmail.com"];
 
+// let cuerpoTablaContacto = document.querySelector(".tabla_contacto");
+
+// cuerpoTablaContacto.innerHTML =`
+// <tr class="color-form1">
+// <td>+54 9 011 457 147</td>
+// <td>+598 9 011 457 148</td>
+// </tr>
+// <tr class="color-form2">
+// <td>+54 9 011 457 149</td>
+// <td>+598 9 011 457 150</td>
+// </tr>
+// <tr class="color-form1">
+// <td>+54 9 011 457 151</td>
+// <td>+598 9 011 457 152</td>
+// </tr>
+// <tr class="color-form2">
+// <td>+54 9 011 457 153</td>
+// <td>+598 9 011 457 154</td>
+// </tr>
+// `;
+
 let titulo = document.querySelector("#texto_captcha");//captcha que se muestra en pantalla
 
 let respuestaCaptcha = document.querySelector("#respuestaCaptcha");// respuesta del humano al captcha
@@ -14,13 +35,11 @@ let respuestaCaptcha = document.querySelector("#respuestaCaptcha");// respuesta 
 let botonEnviar = document.querySelector("#boton_enviar");
 botonEnviar.addEventListener('click', imprimir);
 
-
 let formulario = document.querySelector("#formulario");
 
 let tablaDinamica = document.querySelector(".cuerpo_tablaD");
 
-let usuario= [];
-
+let usuario = [];
 
 function generador(textoClave){//ACA SE CREA EL CAPTCHA
     let clave = [];//ACA SE GUARDAN LOS CARACTERES DEL CAPTCHA POR SEPARADO
@@ -75,6 +94,17 @@ tablaDinamica.innerHTML =
 `;///Datos precargados en tabla dinamica
 
 
+// let ulMenuResponsive = document.querySelector(".menu_responsive");
+// let liMenuResponsive = document.querySelector(".ul_menu_responsive_li");
+// let aMenuResponsive = document.querySelector(".ul_menu_responsive_li_a");
+
+// let botonMenuResponsive = document.querySelector(".img_prueba");
+// botonMenuResponsive.addEventListener("hover", function(){
+//     ulMenuResponsive.classList.toggle("ul_responsive_display");
+//     liMenuResponsive.classList.toggle("");
+//     aMenuResponsive.classList.toggle("");
+// });
+
 let botonReiniciar = document.querySelector("#boton_reiniciar");
 botonReiniciar.addEventListener("click", function(){
     tablaDinamica.innerHTML = "";
@@ -117,26 +147,21 @@ function imprimir(e){
     let diaria = document.querySelector("#diaria");
     let favorito = verificarFavorito(diaria);
     //   class="favoritos"
+    let claseFavorito = ``;
     if((comprobacion === 1) && (favorito == "Si")){
-        tablaDinamica.innerHTML += `
-        <tr>
-        <td class="favoritos">${nombre}</td>
-        <td class="favoritos">${correo}</td>
-        <td class="favoritos">True</td>
-        <td class="favoritos">${favorito}</td>
-        </tr>`
-    }else{
-        tablaDinamica.innerHTML += `
-        <tr>
-        <td>${nombre}</td>
-        <td>${correo}</td>
-        <td>True</td>
-        <td>${favorito}</td>
-        </tr>`
+        claseFavorito = `"favoritos"`
     }
-    crearUsuario(usuario, nombre, correo, favorito);
+    if(comprobacion === 1){
+        tablaDinamica.innerHTML += `
+        <tr>
+        <td class=${claseFavorito}>${nombre}</td>
+        <td class=${claseFavorito}>${correo}</td>
+        <td class=${claseFavorito}>True</td>
+        <td class=${claseFavorito}>${favorito}</td>
+        </tr>`;
+        crearUsuario(usuario, nombre, correo, favorito);
+    }
 }
-
 
 function crearUsuario(usuario, nombre, correo, favorito){
     let usuarioC = {

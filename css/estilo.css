@@ -36,10 +36,6 @@ header div img.titulo_OneShot{
     width: 93%;
 }
 
-
-
-
-
 nav{
     background-color: rgb(165, 42, 42);
     margin-bottom: 2px;
@@ -75,8 +71,6 @@ nav div.container_menu_responsive{
     display: none;
 }
 
-
-
 article{
     width: 100%;
     display: flex;
@@ -85,12 +79,6 @@ article{
     min-height: 120vh;
     background-color: #F0C664;
     padding: 10px 0px;
-}
-
-article.index_article{
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
 }
 
 article div {
@@ -162,6 +150,13 @@ tbody tr > td{
 
 
 /*--------------------LO SIGUIENTE CORRESPONDE A index.html----------------------------------------*/
+
+article.index_article{
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
 .seccion_perro {
     display: flex;
     flex-direction: row;
@@ -198,10 +193,7 @@ tbody tr > td{
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-style: italic;
 }
-
-
 /*--------------------LO SIGUIENTE CORRESPONDE A registro.html----------------------------------------*/
-
 .contenedor_img_captcha{
     height: 20vh;
     width: 30vw;
@@ -233,7 +225,6 @@ tbody tr > td{
     background-color: rgb(240, 213, 178);
 }
 
-
 .controles {/*Estilo de inputs*/
     margin: 6px 0px;
 }
@@ -264,8 +255,8 @@ tbody tr > td{
 
 #resultado_captcha{/*Estilo del cartel de validacion de captcha*/
     padding: 7px;
-    width: 22%;
-    min-width: 95px;
+    width: 23%;
+    min-width: 120px;
     align-self: flex-end;
     text-align: center;
     border-radius: 10px;
@@ -299,24 +290,11 @@ tbody.cuerpo_tablaD tr > td.favoritos {
     background-color: rgb(226, 241, 82);
 }
 
-@media only screen and (max-width:660px) {
-    /* .index_article {
-        display: grid;
-        grid-template-columns: 100%;
-        grid-template-areas: 
-        "grid-1"
-        "grid-2"
-        "grid-3"
-        "grid-4"
-        "grid-5"
-        "grid-6";
-    } */
-
-    
+@media only screen and (max-width:660px) { 
+    /*-----------------Correspondiente al header comun---------------------------------*/
     header div.logoytitulo{
         height: 10vh;
     }
-    
 
     header div img.logo_OneShot{
         width: 15%;
@@ -326,8 +304,6 @@ tbody.cuerpo_tablaD tr > td.favoritos {
         width: 70%;
         content: url(../img/vintage_logos2_celular2.jpg);
     }
-
-   
 
     header nav ul.menu_desktop{
         display: none;
@@ -367,10 +343,35 @@ tbody.cuerpo_tablaD tr > td.favoritos {
         font-size: 3em;
         padding-right: 70vw;
     }
+
+    /* .responsive_display_ul{  PRUEBA PARA RESPONSIVE
+        display: initial;
+        position: relative;
+        z-index: 20;
+    }
+
+    .responsive_display_ul_li{
+        background-color: #F0C662;
+        margin: 0.2em 0;
+    }
+    .responsive_display_ul_li_a{
+        text-decoration: none;
+        text-transform: uppercase;
+        color: rgb(165, 42, 42);
+        font-size: 3em;
+        padding-right: 70vw;
+    } */
+    
+
+
+
+
     span.iconos{
         margin: 0 0.5em;
         height: 9.8vh;
     }
+
+    /*-------------------Correspondiente a index.html----------------------------------*/
 
     .seccion_perro{
         width: 100%;
@@ -386,13 +387,10 @@ tbody.cuerpo_tablaD tr > td.favoritos {
         width: 40%;
         height: 60%;
     }
-
-
-
-
+    /*--------------------Corresponde a registro.html------------------------------------*/
 
     .contenedor_img_captcha #texto_captcha {
-        font-size: 6em;
+        font-size: 5em;
     }
 
     div#contenedor_tablaD table{
