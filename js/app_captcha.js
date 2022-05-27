@@ -98,12 +98,13 @@ tablaDinamica.innerHTML =
 // let liMenuResponsive = document.querySelector(".ul_menu_responsive_li");
 // let aMenuResponsive = document.querySelector(".ul_menu_responsive_li_a");
 
-// let botonMenuResponsive = document.querySelector(".img_prueba");
-// botonMenuResponsive.addEventListener("hover", function(){
+ let botonMenuResponsive = document.querySelector(".button_toggle");
+ botonMenuResponsive.addEventListener("click", function(){
+    alert("nedeah");
 //     ulMenuResponsive.classList.toggle("ul_responsive_display");
 //     liMenuResponsive.classList.toggle("");
 //     aMenuResponsive.classList.toggle("");
-// });
+ });
 
 let botonReiniciar = document.querySelector("#boton_reiniciar");
 botonReiniciar.addEventListener("click", function(){

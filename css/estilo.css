@@ -344,6 +344,20 @@ tbody.cuerpo_tablaD tr > td.favoritos {
         padding-right: 70vw;
     }
 
+    button.button_toggle{
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 10vh;
+        width: 15vw;
+        background-color: #F0C664;
+    }
+
+    button.button_toggle i{
+        font-size: 9vh;
+    }
+
+
     /* .responsive_display_ul{  PRUEBA PARA RESPONSIVE
         display: initial;
         position: relative;
@@ -389,6 +403,9 @@ tbody.cuerpo_tablaD tr > td.favoritos {
     }
     /*--------------------Corresponde a registro.html------------------------------------*/
 
+    .formulario{
+        width: 99%;
+    }
     .contenedor_img_captcha #texto_captcha {
         font-size: 5em;
     }
