@@ -321,7 +321,7 @@ tbody.cuerpo_tablaD tr > td.favoritos {
         width: 15vw;
     }
 
-    nav div.container_menu_responsive ul.menu_responsive{
+    .menu_responsive{
         display: none;
     }
 
@@ -351,19 +351,20 @@ tbody.cuerpo_tablaD tr > td.favoritos {
         height: 10vh;
         width: 15vw;
         background-color: #F0C664;
+        padding: 4px;
     }
 
     button.button_toggle i{
-        font-size: 9vh;
+        font-size: 5vh;
     }
 
 
-    /* .responsive_display_ul{  PRUEBA PARA RESPONSIVE
+     .responsive_display_ul{ 
         display: initial;
         position: relative;
         z-index: 20;
     }
-
+/*
     .responsive_display_ul_li{
         background-color: #F0C662;
         margin: 0.2em 0;
@@ -375,15 +376,6 @@ tbody.cuerpo_tablaD tr > td.favoritos {
         font-size: 3em;
         padding-right: 70vw;
     } */
-    
-
-
-
-
-    span.iconos{
-        margin: 0 0.5em;
-        height: 9.8vh;
-    }
 
     /*-------------------Correspondiente a index.html----------------------------------*/
 
@@ -417,4 +409,5 @@ tbody.cuerpo_tablaD tr > td.favoritos {
     div#contenedor_tablaD{
         border-radius: 0;
     }
+    
 }

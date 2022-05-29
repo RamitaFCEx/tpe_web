@@ -3,10 +3,6 @@
 const posiblesCaracteres = ['a', 'g', 'e', '4', 'r', 'p', '6', 'y', 'k','u','8'];
 let textoClave = "";//ACA SE GUARDA EL CAPTCHA EN FORMA DE STRING
 
-let usuarioPorDefecto1 = ["Fidel Castro", "elFideee@gmail.com"];
-let usuarioPorDefecto2 = ["Benedicto XVI", "beniGGWP@gmail.com"];
-let usuarioPorDefecto3 = ["Aristobulo Delvalle", "delvalle_ahri@gmail.com"];
-
 // let cuerpoTablaContacto = document.querySelector(".tabla_contacto");
 
 // cuerpoTablaContacto.innerHTML =`
@@ -71,40 +67,30 @@ function comprobarCaptcha(){
 /////////////////Arriba estable
 
 ///Datos precargados en tabla dinamica
+
 tablaDinamica.innerHTML = 
 `
 <tr class="color-form1">
-<td>${usuarioPorDefecto1[0]}</td>
-<td>${usuarioPorDefecto1[1]}</td>
-<td>True</td>
-<td>Si</td>
+<td class="favoritos">Fidel Castro</td>
+<td class="favoritos">elFideee@gmail.com</td>
+<td class="favoritos">True</td>
+<td class="favoritos">Si</td>
 </tr>
 <tr>
-<td>${usuarioPorDefecto2[0]}</td>
-<td>${usuarioPorDefecto2[1]}</td>
+<td>Benedicto XVI</td>
+<td>beniGGWP@gmail.com</td>
 <td>True</td>
 <td>No</td>
 </tr>
 <tr>
-<td>${usuarioPorDefecto3[0]}</td>
-<td>${usuarioPorDefecto3[1]}</td>
-<td>True</td>
-<td>Si</td>
+<td class="favoritos">Aristobulo Delvalle</td>
+<td class="favoritos">delvalle_ahri@gmail.com</td>
+<td class="favoritos">True</td>
+<td class="favoritos">Si</td>
 </tr>
 `;///Datos precargados en tabla dinamica
 
 
-// let ulMenuResponsive = document.querySelector(".menu_responsive");
-// let liMenuResponsive = document.querySelector(".ul_menu_responsive_li");
-// let aMenuResponsive = document.querySelector(".ul_menu_responsive_li_a");
-
- let botonMenuResponsive = document.querySelector(".button_toggle");
- botonMenuResponsive.addEventListener("click", function(){
-    alert("nedeah");
-//     ulMenuResponsive.classList.toggle("ul_responsive_display");
-//     liMenuResponsive.classList.toggle("");
-//     aMenuResponsive.classList.toggle("");
- });
 
 let botonReiniciar = document.querySelector("#boton_reiniciar");
 botonReiniciar.addEventListener("click", function(){
@@ -149,9 +135,8 @@ function imprimir(e){
     let favorito = verificarFavorito(diaria);
     //   class="favoritos"
     let claseFavorito = ``;
-    if((comprobacion === 1) && (favorito == "Si")){
-        claseFavorito = `"favoritos"`
-    }
+    ((comprobacion === 1) && (favorito == "Si"))? claseFavorito = `"favoritos"` : claseFavorito = ``;
+
     if(comprobacion === 1){
         tablaDinamica.innerHTML += `
         <tr>
