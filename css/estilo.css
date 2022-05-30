@@ -11,7 +11,7 @@
 }
 
 ::-webkit-scrollbar-thumb {
-    background: rgb(165, 42, 42);/*(113, 202, 86)*/
+    background: #35433c;/*(113, 202, 86)*/
     border-radius: 10px;
 }
 
@@ -52,7 +52,7 @@ header div img.titulo_OneShot{
 }
 
 nav{
-    background-color: rgb(165, 42, 42);
+    background-color: #35433c;
     margin-bottom: 2px;
 }
 
@@ -78,7 +78,7 @@ nav ul.menu_desktop li a{
 }
 
 nav ul.menu_desktop li a:hover{
-    background-color: rgb(204, 72, 72);
+    background-color: rgb(127, 129, 128);
 }
 
 nav div.container_menu_responsive{
@@ -92,8 +92,11 @@ article{
     flex-direction: column;
     align-items: center;
     min-height: 120vh;
-    background-color: #F0C664;
+    background-color: #35433c;
     padding: 10px 0px;
+    color: #8ad1e5;
+    font-weight: bold;
+    font-size: larger;
 }
 
 article div {
@@ -121,9 +124,9 @@ footer img{
 
 .contenedor_tabla{
     margin-top: 3vh;
-    border: solid 4px rgb(35, 1, 75);
+    border: solid 4px #8ad1e5;
     border-radius: 10px;
-    background-color: rgb(240, 213, 178);
+    background-color: #35433c;
 }
 
 table{
@@ -140,30 +143,15 @@ td {
     padding: 7px;
 }
 
-thead {
-    background-color: rgb(189, 52, 52);
-}
-
-tbody td:first-child{
-    border-left: 3px solid rgb(189, 52, 52);
-}
-
 tbody tr > td{
-    border-right: 3px solid rgb(189, 52, 52);
-    border-bottom: 3px solid rgb(189, 52, 52);
-}
+    border-bottom: 3px solid rgb(133, 107, 158);
+} 
 
 .color-form1, tbody.cuerpo_tablaD tr > td {
-    background-color: rgb(245, 141, 141) ;
-}
-.color-form2 {
-    background-color: rgb(238, 102, 102) ;
+    background-color: #35433c ;
 }
 
 /*-----------------------------------------------------------------------------------*/
-
-
-
 /*--------------------LO SIGUIENTE CORRESPONDE A index.html----------------------------------------*/
 
 article.index_article{
@@ -175,8 +163,9 @@ article.index_article{
 .seccion_perro {
     display: flex;
     flex-direction: row;
-    border: solid 4px rgb(35, 1, 75);
-    background-color: rgb(240, 213, 178);
+    border: solid 4px #8ad1e5;
+    color: #8ad1e5;
+    background-color: #35433c;
     padding: 20px;
     width: 79vh;
     height: 36vh;
@@ -193,7 +182,7 @@ article.index_article{
     width: 100%;
     object-fit: cover;
     border-radius: 50%;
-    outline: 4px rgb(35, 1, 75) solid;
+    outline: 4px #8ad1e5 solid;
 }
 
 .lista_perro {
@@ -236,9 +225,9 @@ article.index_article{
     justify-content: center;
     flex-direction: column;
     border-radius: 10px;
-    border: 3px solid rgb(35, 1, 75);
+    border: 3px solid #8ad1e5;
     padding: 7px;
-    background-color: rgb(240, 213, 178);
+    background-color: #35433c;
 }
 
 .controles {/*Estilo de inputs*/
@@ -250,23 +239,27 @@ article.index_article{
 }
 
 .esperandoCaptha{/*Estilo del cartel de validacion de captcha*/
-    background-color: rgb(240, 182, 36);
+    background-color: #35433c;
 }
 
 .rechazandoCaptcha{/*Estilo del cartel de validacion de captcha*/
-    background-color: rgb(240, 67, 36);
+    background-color: rgb(141, 29, 9);
 }
 
 .validandoCaptcha{/*Estilo del cartel de validacion de captcha*/
-    background-color: rgb(101, 240, 36);
+    background-color: rgb(44, 112, 12);
 }
 
 .form_inputs{ /*Estilo de los inputs*/
     border: none;
     border-bottom: 3px solid rgb(133, 107, 158);
-    background: transparent;
     outline: none;
-    
+    background: rgb(127, 129, 128);
+}
+
+input.form_inputs{
+    font-weight: bold;
+    color: #fff;
 }
 
 #resultado_captcha{/*Estilo del cartel de validacion de captcha*/
@@ -276,7 +269,7 @@ article.index_article{
     align-self: flex-end;
     text-align: center;
     border-radius: 10px;
-    border: 4px solid rgb(82, 68, 95);
+    border: 4px solid #8ad1e5;
 }
 
 .contenedor_botones{
@@ -303,7 +296,8 @@ font-weight: 900;
 }
 
 tbody.cuerpo_tablaD tr > td.favoritos {
-    background-color: rgb(226, 241, 82);
+    background-color: rgba(255, 253, 132, 0.856);
+    color: #35433c;
 }
 
 @media only screen and (max-width:660px) { 
@@ -352,12 +346,14 @@ tbody.cuerpo_tablaD tr > td.favoritos {
         right: 0;
         height: 10vh;
         width: 15vw;
-        background-color: #F0C664;
+        background-color: #8ad1e5;
         padding: 4px;
+        border: none;
     }
 
     button.button_toggle i{
         font-size: 5vh;
+        color: #35433c;
     }
 
 
@@ -368,14 +364,14 @@ tbody.cuerpo_tablaD tr > td.favoritos {
     }
 
     .responsive_li{
-        background-color: #F0C662;
+        background-color: #8ad1e5;
         margin: 0.2em 0;
     }
     .responsive_a{
         text-decoration: none;
         text-transform: uppercase;
-        color: rgb(165, 42, 42);
-        font-size: 3em;
+        color: #35433c;
+        font-size: 2em;
         padding-right: 70vw;
     } 
 
@@ -401,7 +397,7 @@ tbody.cuerpo_tablaD tr > td.favoritos {
         width: 99%;
     }
     .contenedor_img_captcha #texto_captcha {
-        font-size: 5em;
+        font-size: 4em;
     }
 
     div#contenedor_tablaD table{
