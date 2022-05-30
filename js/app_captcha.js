@@ -3,27 +3,6 @@
 const posiblesCaracteres = ['a', 'g', 'e', '4', 'r', 'p', '6', 'y', 'k','u','8'];
 let textoClave = "";//ACA SE GUARDA EL CAPTCHA EN FORMA DE STRING
 
-// let cuerpoTablaContacto = document.querySelector(".tabla_contacto");
-
-// cuerpoTablaContacto.innerHTML =`
-// <tr class="color-form1">
-// <td>+54 9 011 457 147</td>
-// <td>+598 9 011 457 148</td>
-// </tr>
-// <tr class="color-form2">
-// <td>+54 9 011 457 149</td>
-// <td>+598 9 011 457 150</td>
-// </tr>
-// <tr class="color-form1">
-// <td>+54 9 011 457 151</td>
-// <td>+598 9 011 457 152</td>
-// </tr>
-// <tr class="color-form2">
-// <td>+54 9 011 457 153</td>
-// <td>+598 9 011 457 154</td>
-// </tr>
-// `;
-
 let titulo = document.querySelector("#texto_captcha");//captcha que se muestra en pantalla
 
 let respuestaCaptcha = document.querySelector("#respuestaCaptcha");// respuesta del humano al captcha
@@ -55,12 +34,12 @@ function comprobarCaptcha(){
     if(respuestaCaptcha.value == textoClave){//compara
         resultado_captcha.innerHTML = "Validado";
         resultado_captcha.classList.add("validandoCaptcha");
-        resultado_captcha.classList.remove("esperandoCaptha","rechazandoCaptcha");
+        resultado_captcha.classList.remove("rechazandoCaptcha");
         return 1;
     } else{
         resultado_captcha.innerHTML = "Rechazado";
         resultado_captcha.classList.add("rechazandoCaptcha");
-        resultado_captcha.classList.remove("esperandoCaptha","validandoCaptcha");
+        resultado_captcha.classList.remove("validandoCaptcha");
         return -1;
     }
 }
