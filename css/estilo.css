@@ -202,7 +202,7 @@ article.index_article{
 /*--------------------LO SIGUIENTE CORRESPONDE A registro.html----------------------------------------*/
 .contenedor_img_captcha{
     height: 20vh;
-    min-height: 70px;
+    min-height: 100px;
     width: 30vw;
     min-width: 261px;
     background-image: url(../img/fondo_captcha.jpg);
@@ -387,7 +387,7 @@ tbody.cuerpo_tablaD tr > td.favoritos {
     
     .foto_perro{
         width: 40%;
-        height: 50%;
+        height: 55%;
     }
     /*--------------------Corresponde a registro.html------------------------------------*/
 

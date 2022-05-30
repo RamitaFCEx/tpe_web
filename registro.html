@@ -49,15 +49,18 @@
             <label class="controles" for="correo">Correo electronico:</label>
             <input type="email" name="correo" class="form_inputs" placeholder="Correo" required>
 
-            <label class="controles">Frecuencia de actualizaciones</label>
+            <label class="controles">Frecuencia de actualizaciones:</label>
                 <div class="seleccion_frecuencia"> 
-                <label for="frecuencia">Diaria</label><input type="radio" name="frecuencia" value="frecuencia" id="diaria">
-                <label for="semanal">Semanal</label><input type="radio" name="frecuencia" value="frecuencia" id="semanal">
-                <label for="frecuencia">Mensual</label><input type="radio" name="frecuencia" value="mensual" id="mensual">
+
+                <div><input type="radio" name="frecuencia" value="frecuencia" id="diaria"><label for="frecuencia">Diaria</label></div> 
+
+                <div><input type="radio" name="frecuencia" value="frecuencia" id="semanal"><label for="semanal">Semanal</label></div>
+
+                <div><input type="radio" name="frecuencia" value="mensual" id="mensual"><label for="frecuencia">Mensual</label></div>
                 </div>
 
-            <label class="controles" for="validacion"> Al enviar este formulario aceptarias los terminos y condiciones</label>
-            <input name="validacion" type="checkbox" required>
+            <label class="controles" for="validacion"> Al enviar este formulario aceptarias los terminos y condiciones: <input name="validacion" type="checkbox" required></label>
+            
 
             <div class="contenedor_img_captcha" class="controles"><p id="texto_captcha"></p></div>
 
