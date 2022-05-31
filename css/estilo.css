@@ -300,7 +300,7 @@ tbody.cuerpo_tablaD tr > td.favoritos {
     color: #35433c;
 }
 
-@media only screen and (max-width:660px) { 
+@media only screen and (max-width:768px) { 
     /*-----------------Correspondiente al header comun---------------------------------*/
     header div.logoytitulo{
         height: 10vh;
