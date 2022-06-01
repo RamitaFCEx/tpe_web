@@ -1,3 +1,5 @@
+/*-ESTE SITIO FUE DESARROLLADO POR DIAZ MANUEL(C2) Y MEZA RAMIRO(C11) GRUPO 10----------------------------*/
+"use strict";
 let tabla_contacto = document.querySelector(".tabla_contacto");
 
 tabla_contacto.innerHTML =`

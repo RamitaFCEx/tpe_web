@@ -1,3 +1,4 @@
+/*-ESTE SITIO FUE DESARROLLADO POR DIAZ MANUEL(C2) Y MEZA RAMIRO(C11) GRUPO 10----------------------------*/
 "use strict";
 
 let ulMenuResponsive = document.querySelector(".menu_responsive");
