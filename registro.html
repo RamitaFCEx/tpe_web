@@ -11,17 +11,17 @@
     <link rel="stylesheet" href="css/Iconos/style.css">
     <title>Registro</title>
 </head>
-<body class="fondo_oscuro">
-    <header>
+<body class="display_flex_column fondo_oscuro">
+    <header class="display_flex_column">
 
-        <div class="logoytitulo">
+        <div class="display_flex logoytitulo header_footer_height">
             <img src="img/logo_header.png" alt="logoOneShot" class="logo_OneShot">
             <img src="img/vintage_logos4.jpg" alt="nombreOneShot" class="titulo_OneShot">
             
         </div>
         
         <nav>
-            <ul class="menu_desktop">
+            <ul class="display_flex menu_desktop">
                 <li><a href="index.html" class="font_weight_bold">home</a></li>
                 <li><a href="contacto.html" class="font_weight_bold">contacto</a></li>
                 <li><a href="registro.html" class="font_weight_bold">registro</a></li>
@@ -30,7 +30,7 @@
 
                 <button class="button_toggle fondo_azul"><i class="iconos icon-menu"></i></button>
 
-                <ul class="menu_responsive">
+                <ul class="menu_responsive fondo_oscuro">
                     <li class="responsive_li fondo_azul"><a href="index.html" class="responsive_a"><span class="iconos icon-home3"></span>home</a></li>
                     <li class="responsive_li fondo_azul"><a href="contacto.html" class="responsive_a"><span class="iconos icon-phone"></span>contacto</a></li>
                     <li class="responsive_li fondo_azul"><a href="registro.html" class="responsive_a"><span class="iconos icon-user-plus"></span>registro</a></li>
@@ -39,9 +39,9 @@
         </nav>
 
     </header>
-    <article class="aricle_registro letra_azul font_weight_bold">
+    <article class="display_flex_column aricle_registro letra_azul font_weight_bold">
         
-        <form class="formulario borde_azul" action="" id="formulario">
+        <form class="display_flex_column formulario borde_azul" action="" id="formulario">
             <h3 class="controles">Formulario</h3>
             <label class="controles" for="nombre">Nombre:</label>
             <input type="text"  name="nombre" class="form_inputs font_weight_bold" placeholder="Nombre" required>
@@ -62,12 +62,12 @@
             <label class="controles" for="validacion"> Al enviar este formulario aceptarias los terminos y condiciones: <input name="validacion" type="checkbox" required></label>
             
 
-            <div class="contenedor_img_captcha" class="controles"><p id="texto_captcha" class="font_weight_bold"></p></div>
+            <div class="display_flex contenedor_img_captcha" class="controles"><p id="texto_captcha" class="font_weight_bold"></p></div>
 
             <input class="controles form_inputs" type="text" name="captcha_escrito" id="respuestaCaptcha" placeholder="Captcha" required>
             <h4 class="esperandoCaptha borde_azul" id="resultado_captcha">Esperando</h4>
 
-            <div class="contenedor_botones">
+            <div class="display_flex contenedor_botones">
             <button id="boton_enviar" class="controles form_inputs boton_form font_weight_bold" type="button">Enviar</button>
 
             <button id="boton_enviar_3" class="controles form_inputs boton_form font_weight_bold" type="button">Enviar*3</button>
@@ -95,7 +95,7 @@
 
     </article>
 
-    <footer>
+    <footer class="header_footer_height display_flex">
         <img src="img/vintage_logos2_footer.jpg" alt="nombreEmpresaFooter">
     </footer>
 
