@@ -27,6 +27,10 @@ header div img.titulo_OneShot{
     width: 93%;
 }
 
+.header_footer_height{
+    height: 6.86vw;
+}
+
 nav{
     margin-bottom: 2px;
 }
@@ -65,10 +69,6 @@ article{
 
 article div {
     margin-bottom: 5px;
-}
-
-.header_footer_height{
-    height: 6.86vw;
 }
 
 footer img{
