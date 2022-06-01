@@ -16,6 +16,28 @@ let tablaDinamica = document.querySelector(".cuerpo_tablaD");
 
 let usuario = [];
 
+let botonEnviar3 = document.querySelector("#boton_enviar_3");
+botonEnviar3.addEventListener("click", function(e){
+    comprobarCaptcha();
+    let comprobacion = comprobarCaptcha();
+    if (comprobacion === 1){
+    for(let i = 0; i<3;i++){
+    // let formData = new FormData(formulario);
+    imprimir(e);
+    }
+    }
+});
+
+let botonReiniciar = document.querySelector("#boton_reiniciar");
+botonReiniciar.addEventListener("click", function(){
+    tablaDinamica.innerHTML = "";
+    usuarioPorDefecto1 = [];
+    usuarioPorDefecto2 = [];
+    usuarioPorDefecto3 = [];
+    usuario = [];
+    //console.log("reinicio");
+});
+
 function generador(textoClave){//ACA SE CREA EL CAPTCHA
     let clave = [];//ACA SE GUARDAN LOS CARACTERES DEL CAPTCHA POR SEPARADO
     let textoClaveGenerador = textoClave;
@@ -43,55 +65,6 @@ function comprobarCaptcha(){
         return -1;
     }
 }
-/////////////////Arriba estable
-
-///Datos precargados en tabla dinamica
-
-tablaDinamica.innerHTML = 
-`
-<tr class="color-form1">
-<td class="favoritos">Fidel Castro</td>
-<td class="favoritos">elFideee@gmail.com</td>
-<td class="favoritos">True</td>
-<td class="favoritos">Si</td>
-</tr>
-<tr>
-<td>Benedicto XVI</td>
-<td>beniGGWP@gmail.com</td>
-<td>True</td>
-<td>No</td>
-</tr>
-<tr>
-<td class="favoritos">Aristobulo Delvalle</td>
-<td class="favoritos">delvalle_ahri@gmail.com</td>
-<td class="favoritos">True</td>
-<td class="favoritos">Si</td>
-</tr>
-`;///Datos precargados en tabla dinamica
-
-
-
-let botonReiniciar = document.querySelector("#boton_reiniciar");
-botonReiniciar.addEventListener("click", function(){
-    tablaDinamica.innerHTML = "";
-    usuarioPorDefecto1 = [];
-    usuarioPorDefecto2 = [];
-    usuarioPorDefecto3 = [];
-    usuario = [];
-    //console.log("reinicio");
-});
-
-let botonEnviar3 = document.querySelector("#boton_enviar_3");
-botonEnviar3.addEventListener("click", function(e){
-    comprobarCaptcha();
-    let comprobacion = comprobarCaptcha();
-    if (comprobacion === 1){
-    for(let i = 0; i<3;i++){
-    // let formData = new FormData(formulario);
-    imprimir(e);
-    }
-    }
-});
 
 function verificarFavorito(diaria){
     if(diaria.checked == true){
@@ -139,6 +112,29 @@ function crearUsuario(usuario, nombre, correo, favorito){
     //     console.log(usuario[i]);
     // }
 }
+
+///Datos precargados en tabla dinamica
+tablaDinamica.innerHTML = 
+`
+<tr class="color-form1">
+<td class="favoritos">Fidel Castro</td>
+<td class="favoritos">elFideee@gmail.com</td>
+<td class="favoritos">True</td>
+<td class="favoritos">Si</td>
+</tr>
+<tr>
+<td>Benedicto XVI</td>
+<td>beniGGWP@gmail.com</td>
+<td>True</td>
+<td>No</td>
+</tr>
+<tr>
+<td class="favoritos">Aristobulo Delvalle</td>
+<td class="favoritos">delvalle_ahri@gmail.com</td>
+<td class="favoritos">True</td>
+<td class="favoritos">Si</td>
+</tr>
+`;///Datos precargados en tabla dinamica
 
 textoClave = generador(textoClave);
 titulo.innerHTML = textoClave;
