@@ -61,7 +61,6 @@ article{
     align-items: center;
     min-height: 120vh;
     padding: 10px 0px;
-    font-size: larger;
 }
 
 article div {
@@ -143,7 +142,7 @@ article.index_article{/*MUY importante*/
     justify-content: space-evenly;
 }
 
-.seccion_perro {
+.seccion_perro{
     padding: 20px;
     width: 79vh;
     height: 36vh;
@@ -162,10 +161,10 @@ article.index_article{/*MUY importante*/
     outline: 4px #4682b4 solid;
 }
 
-.lista_perro {
+.lista_perro{
     width: 60%;/*importante*/
     padding: 0px 20px 0px 50px;
-    overflow: hidden;
+    overflow: auto;
 }
 
 .lista_perro h2{
@@ -187,16 +186,16 @@ article.index_article{/*MUY importante*/
 }
 
 div.contenedor_img_captcha p#texto_captcha{
-    color: rgb(255, 238, 213);
+    color: rgb(239, 248, 115);/*(255, 238, 213)*/
     font-size: 15vh;
 }
 
-.formulario {
+.formulario{
     border-radius: 10px;
     padding: 7px;
 }
 
-.controles {/*Estilo de inputs*/
+.controles{/*Estilo de inputs*/
     margin: 6px 0px;
 }
 
@@ -217,11 +216,7 @@ div.contenedor_img_captcha p#texto_captcha{
     border-bottom: 3px solid #fff;
     outline: none;
     background: rgb(127, 129, 128);
-}
-
-input.form_inputs{
     color: #fff;
-    font-size: large;
 }
 
 ::placeholder{
@@ -247,6 +242,7 @@ border-radius: 10px;
 padding: 9px;
 width: 30%;
 align-self: center;
+color: #000000;
 }
 
 .boton_form:hover{
@@ -264,12 +260,13 @@ tbody.cuerpo_tablaD tr > td.favoritos {
 
 @media only screen and (max-width:768px) { 
     /*-----------------Correspondiente al header comun---------------------------------*/
-    header div.logoytitulo{
+    .header_footer_height{
         height: 10vh;
     }
 
     ::-webkit-scrollbar {
         height: 12px;
+        width: 4px;
     }
     
     header div img.logo_OneShot{
@@ -323,7 +320,12 @@ tbody.cuerpo_tablaD tr > td.favoritos {
         color: #35433c;
         font-size: 2em;
         padding-right: 70vw;
+        font-style: italic;
     } 
+
+    footer img{
+        content: url(../img/vintage_logos2_footer_celular.jpg);
+    }
     /*-------------------Correspondiente a index.html----------------------------------*/
     .seccion_perro{/*Muy importante, se rompen las secciones*/
         width: 100%;
@@ -339,10 +341,6 @@ tbody.cuerpo_tablaD tr > td.favoritos {
         height: 60%;/*importante, mejora visual 321-600px width*/
     }
     /*--------------------Corresponde a registro.html------------------------------------*/
-    .contenedor_img_captcha #texto_captcha {
-        font-size: 4em;
-    }
-
     div#contenedor_tablaD table{
         padding: 0;
         max-width: 100%;/*importante, hace responsive la tabla*/
