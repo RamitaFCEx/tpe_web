@@ -141,17 +141,21 @@ article.index_article{/*MUY importante*/
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-evenly;
+    align-items: stretch;
 }
 
 .seccion_perro{
     padding: 20px;
     width: 79vh;
-    height: 36vh;
+    min-height: 36vh;
+    height: fit-content;
+    height: auto;
     border-radius: 15px;
 }
 
 .foto_perro{
     width: 40%;
+    max-height: 28vh;
 }
 
 .foto_perro img{
@@ -165,7 +169,6 @@ article.index_article{/*MUY importante*/
 .lista_perro{
     width: 60%;/*importante*/
     padding: 0px 20px 0px 50px;
-    overflow: auto;
 }
 
 .lista_perro h2{
