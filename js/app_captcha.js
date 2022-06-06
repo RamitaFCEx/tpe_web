@@ -87,17 +87,33 @@ function imprimir(e){
     let favorito = verificarFavorito(diaria);
     //   class="favoritos"
     let claseFavorito = ``;
-    ((comprobacion === 1) && (favorito == "Si"))? claseFavorito = `"favoritos"` : claseFavorito = ``;
+    ((comprobacion === 1) && (favorito == "Si"))? claseFavorito = `favoritos` : claseFavorito = ``;
 
     if(comprobacion === 1){
-        tablaDinamica.innerHTML += `
-        <tr>
-        <td class=${claseFavorito}>${nombre}</td>
-        <td class=${claseFavorito}>${correo}</td>
-        <td class=${claseFavorito}>True</td>
-        <td class=${claseFavorito}>${favorito}</td>
-        </tr>`;
-        crearUsuario(usuario, nombre, correo, favorito);
+        // tablaDinamica.innerHTML += `
+        // <tr>
+        // <td class=${claseFavorito}>${nombre}</td>
+        // <td class=${claseFavorito}>${correo}</td>
+        // <td class=${claseFavorito}>True</td>
+        // <td class=${claseFavorito}>${favorito}</td>
+        // </tr>`;
+        crearUsuario(usuario, nombre, correo, favorito);//agrega un objeto
+
+        const fila = document.createElement("tr"); //dice que es una fila y pone nombre
+        tablaDinamica.appendChild(fila);//crea la fila
+        let datosUsuario = [nombre, correo, "True", favorito]//reune los datos
+
+        for(let j=0; j<4; j++){//imprime los datos 
+        const espacio = document.createElement("td");//dice que es una celda y pone nombre
+        let contenido = document.createTextNode(`${datosUsuario[j]}`);//crea el contenido
+        fila.appendChild(espacio);//crea la celda
+        espacio.appendChild(contenido);//escribe la celda
+        if(claseFavorito == `favoritos`){
+            espacio.classList.add(`${claseFavorito}`);//pone clase favorito
+        }
+        }
+        
+    
     }
 }
 
