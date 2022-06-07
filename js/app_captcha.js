@@ -7,7 +7,6 @@ let usuariosRegistrados = [];
 
 let botonEnviar3 = document.querySelector("#boton_enviar_3");
 botonEnviar3.addEventListener("click", function(e){
-    comprobarCaptcha();
     let comprobacion = comprobarCaptcha();
     if (comprobacion === 1){
     for(let i = 0; i<3;i++){
@@ -19,7 +18,7 @@ botonEnviar3.addEventListener("click", function(e){
 let botonReiniciar = document.querySelector("#boton_reiniciar");
 botonReiniciar.addEventListener("click", function(){
     document.querySelectorAll(".fila_dinamica").forEach(x => x.remove());
-});
+});//trae todas las filas, las borra una por una
 
 function generador(){//ACA SE CREA EL CAPTCHA
     const posiblesCaracteres = ['a', 'g', 'e', '4', 'r', 'p', '6', 'y', 'k','u','8'];
@@ -27,7 +26,7 @@ function generador(){//ACA SE CREA EL CAPTCHA
     let textoClaveGenerador = "";
     let titulo = document.querySelector("#texto_captcha");//captcha que se muestra en pantalla
     for (let i=0; i<5; i++){
-        let indice = Math.floor(Math.random()*11);
+        let indice = Math.floor(Math.random()*posiblesCaracteres.length);
         clave.push(posiblesCaracteres[indice])
     }
     textoClaveGenerador = clave.join("");
@@ -53,7 +52,6 @@ function comprobarCaptcha(){
 
 function imprimir(e){
     e.preventDefault();
-    comprobarCaptcha();
     let formulario = document.querySelector("#formulario");
     let tablaDinamica = document.querySelector(".cuerpo_tablaD");
     let comprobacion = comprobarCaptcha();
@@ -61,11 +59,11 @@ function imprimir(e){
     //Captura de datos:
     let nombre = formData.get("nombre");
     let correo = formData.get("correo");
-    let diaria = document.querySelector("#diaria");
+    let diaria = document.querySelector("#diaria");//cambiable
     let favorito = "";
     
     (diaria.checked == true) ? favorito = "Si" : favorito = "No";
-    //   class="favoritos"
+
     let claseFavorito = ``;
     ((comprobacion === 1) && (favorito == "Si"))? claseFavorito = `favoritos` : claseFavorito = ``;
 
@@ -75,6 +73,7 @@ function imprimir(e){
         const fila = document.createElement("tr"); //dice que es una fila y pone nombre
         tablaDinamica.appendChild(fila);//crea la fila
         fila.classList.add("fila_dinamica");
+
         let datosUsuario = [nombre, correo, "True", favorito]//reune los datos
 
         for(let j=0; j<4; j++){//imprime los datos 
@@ -102,22 +101,22 @@ function crearUsuario(usuariosRegistrados, nombre, correo, favorito){
 function cargaPorDefectoTabla(){
     const datosPorDefecto = [
         {
-            0 : "Fidel Castro",
-            1 : "elFideee@gmail.com",
-            2 : "True",
-            3 : "Si",
+            nombre : "Fidel Castro",
+            correo : "elFideee@gmail.com",
+            validado : "True",
+            fav : "Si",
         },
         {
-            0 : "Benedicto XVI",
-            1 : "beniGGWP@gmail.com",
-            2 : "True",
-            3 : "No"
+            nombre : "Benedicto XVI",
+            correo : "beniGGWP@gmail.com",
+            validado : "True",
+            fav : "No"
         },
         {
-            0 : "Aristobulo Delvalle",
-            1 : "delvalle_ahri@gmail.com",
-            2 : "True",
-            3 : "Si"
+            nombre : "Aristobulo Delvalle",
+            correo1 : "delvalle_ahri@gmail.com",
+            validado : "True",
+            fav : "Si"
         }
     ];
     let tablaDinamica = document.querySelector(".cuerpo_tablaD");
@@ -131,7 +130,7 @@ function cargaPorDefectoTabla(){
                 let contenido = document.createTextNode(`${datosPorDefecto[h][j]}`);//crea el contenido
                 fila.appendChild(espacio);//crea la celda
                 espacio.appendChild(contenido);//escribe la celda
-                if(datosPorDefecto[h][3] == "Si"){
+                if(datosPorDefecto[h].fav == "Si"){
                     espacio.classList.add(`favoritos`);//pinta las celdas favoritas
                 }
             }

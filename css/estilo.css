@@ -317,6 +317,8 @@ tbody.cuerpo_tablaD tr > td.favoritos {
     .responsive_display_ul{ 
         display: initial;
         position: absolute;
+        max-width: 100%;
+        /*top: 30vh;*/
     }
 
     .responsive_li{
