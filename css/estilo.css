@@ -20,11 +20,6 @@ ESTE SITIO FUE DESARROLLADO POR DIAZ MANUEL(C2) Y MEZA RAMIRO(C11) GRUPO 10-----
     border-radius: 5%;
 }
 
-header{
-    position: sticky;
-    top: 0;
-}
-
 header div img.logo_OneShot{
     width: 7%;
 }
@@ -276,6 +271,11 @@ tbody.cuerpo_tablaD tr > td.favoritos {
     ::-webkit-scrollbar {
         height: 12px;
         width: 4px;
+    }
+
+    header{
+        position: sticky;
+        top: 0;
     }
     
     header div img.logo_OneShot{
