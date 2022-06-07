@@ -124,16 +124,15 @@ function cargaPorDefectoTabla(){
         for(let h=0; h<datosPorDefecto.length; h++){//cada udsuario
             const fila = document.createElement("tr"); //dice que es una fila y pone nombre
             tablaDinamica.append(fila);//crea la fila
-            fila.classList.add("fila_dinamica");
+            fila.classList.add("fila_dinamica");//esta clase sirve para borrar la tabla
             
-            //for(let j=0; j<4; j++){
             for(let j in datosPorDefecto[h]){
                 const espacio = document.createElement('td');//dice que es una celda y pone nombre
                 let contenido = document.createTextNode(`${datosPorDefecto[h][j]}`);//crea el contenido
                 fila.appendChild(espacio);//crea la celda
                 espacio.appendChild(contenido);//escribe la celda
                 if(datosPorDefecto[h][3] == "Si"){
-                    espacio.classList.add(`favoritos`);
+                    espacio.classList.add(`favoritos`);//pinta las celdas favoritas
                 }
             }
         }
