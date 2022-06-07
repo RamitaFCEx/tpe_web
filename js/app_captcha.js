@@ -11,7 +11,6 @@ botonEnviar3.addEventListener("click", function(e){
     let comprobacion = comprobarCaptcha();
     if (comprobacion === 1){
     for(let i = 0; i<3;i++){
-    // let formData = new FormData(formulario);
     imprimir(e);
     }
     }
@@ -65,7 +64,6 @@ function imprimir(e){
     let diaria = document.querySelector("#diaria");
     let favorito = "";
     
-
     (diaria.checked == true) ? favorito = "Si" : favorito = "No";
     //   class="favoritos"
     let claseFavorito = ``;
@@ -107,19 +105,19 @@ function cargaPorDefectoTabla(){
             0 : "Fidel Castro",
             1 : "elFideee@gmail.com",
             2 : "True",
-            3 : "True",
+            3 : "Si",
         },
         {
             0 : "Benedicto XVI",
             1 : "beniGGWP@gmail.com",
             2 : "True",
-            3 : "False"
+            3 : "No"
         },
         {
             0 : "Aristobulo Delvalle",
             1 : "delvalle_ahri@gmail.com",
             2 : "True",
-            3 : "True"
+            3 : "Si"
         }
     ];
     let tablaDinamica = document.querySelector(".cuerpo_tablaD");
@@ -134,7 +132,7 @@ function cargaPorDefectoTabla(){
                 let contenido = document.createTextNode(`${datosPorDefecto[h][j]}`);//crea el contenido
                 fila.appendChild(espacio);//crea la celda
                 espacio.appendChild(contenido);//escribe la celda
-                if(datosPorDefecto[h][3] == "True"){
+                if(datosPorDefecto[h][3] == "Si"){
                     espacio.classList.add(`favoritos`);
                 }
             }
