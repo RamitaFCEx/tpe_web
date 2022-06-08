@@ -6,6 +6,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="perros">
+    <meta name="author" content="Diaz Manuel, Meza Ramiro">
+    <meta name="description" content="OneShot es un sitio destinado a la evaluacion de datos fisicos de perros">
     <link rel="stylesheet" href="css/estilo.css">
     <link rel="stylesheet" href="css/Iconos/style.css">
     <title>Registro</title>
@@ -42,49 +45,49 @@
         </nav>
     </header>
 
-    <article class="aricle_registro   font_weight_bold font-size-x-large">
+    <article class="aricle_registro">
         
         <form class="formulario" action="" id="formulario">
-            <h3 class="controles">Formulario</h3>
+            <h3>Formulario</h3>
 
-            <label class="controles" for="nombre">Nombre:</label>
-                <input type="text"  name="nombre" class="form_inputs font_weight_bold font-size-x-large" placeholder="Nombre" required>
+            <label for="nombre">Nombre:</label>
+                <input type="text"  name="nombre" class="form_inputs" placeholder="Nombre" required>
 
-            <label class="controles" for="correo">Correo electronico:</label>
-                <input type="email" name="correo" class="form_inputs font_weight_bold font-size-x-large" placeholder="Correo" required>
+            <label for="correo">Correo electronico:</label>
+                <input type="email" name="correo" class="form_inputs" placeholder="Correo" required>
 
-            <label class="controles">Frecuencia de actualizaciones:</label>
+            <label>Frecuencia de actualizaciones:</label>
                 <div class="seleccion_frecuencia"> 
                     <div>
-                        <input type="radio" name="frecuencia" id="diaria" class="font_weight_bold"><label for="diaria">Diaria</label>
+                        <input type="radio" name="frecuencia" id="diaria"><label for="diaria">Diaria</label>
                     </div> 
 
                     <div>
-                        <input type="radio" name="frecuencia" id="semanal" class="font_weight_bold"><label for="semanal">Semanal</label>
+                        <input type="radio" name="frecuencia" id="semanal"><label for="semanal">Semanal</label>
                     </div>
 
                     <div>
-                        <input type="radio" name="frecuencia" id="mensual" class="font_weight_bold"><label for="mensual">Mensual</label>
+                        <input type="radio" name="frecuencia" id="mensual"><label for="mensual">Mensual</label>
                     </div>
                 </div>
 
-            <label class="controles" for="validacion"> Al enviar este formulario aceptarias los terminos y condiciones: <input name="validacion" type="checkbox" id="validacion" required></label>
+            <label for="validacion"> Al enviar este formulario aceptarias los terminos y condiciones: <input name="validacion" type="checkbox" id="validacion" required></label>
             
 
-            <div class="contenedor_img_captcha controles" >
-                <p id="texto_captcha" class="font_weight_bold"></p>
+            <div class="contenedor_img_captcha" >
+                <p id="texto_captcha"></p>
             </div>
 
-                <input class="controles form_inputs font-size-x-large" type="text" name="captcha_escrito" id="respuestaCaptcha" placeholder="Captcha" required>
+                <input class="form_inputs" type="text" name="captcha_escrito" id="respuestaCaptcha" placeholder="Captcha" required>
 
             <h4 class="esperandoCaptha" id="resultado_captcha">Esperando</h4>
 
             <div class="contenedor_botones">
-                <button id="boton_enviar" class="controles form_inputs boton_form font_weight_bold" type="button">Enviar</button>
+                <button id="boton_enviar" class="form_inputs boton_form" type="button">Enviar</button>
 
-                <button id="boton_enviar_3" class="controles form_inputs boton_form font_weight_bold" type="button">Enviar*3</button>
+                <button id="boton_enviar_3" class="form_inputs boton_form" type="button">Enviar*3</button>
 
-                <button id="boton_reiniciar" class="controles form_inputs boton_form font_weight_bold" type="button">Reiniciar</button>
+                <button id="boton_reiniciar" class="form_inputs boton_form" type="button">Reiniciar</button>
             </div>
             
         </form>
@@ -94,10 +97,10 @@
             <h3>Usuarios registrados:</h3>
             <table>
                 <thead>
-                    <td class="font_weight_bold">Nombres</td>
-                    <td class="font_weight_bold">Correo</td>
-                    <td class="font_weight_bold">Valid</td>
-                    <td class="font_weight_bold">Fav</td>
+                    <td>Nombres</td>
+                    <td>Correo</td>
+                    <td>Valid</td>
+                    <td>Fav</td>
                 </thead>
                 <tbody class="cuerpo_tablaD">
 

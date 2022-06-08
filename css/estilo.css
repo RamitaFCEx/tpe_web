@@ -46,6 +46,7 @@ header div img.titulo_OneShot{
 
 nav{
     margin-bottom: 2px;
+    font-weight: bold;
 }
 
 nav ul.menu_desktop{
@@ -92,14 +93,6 @@ footer img{
     width: 100%;
 }
 
-.font-size-x-large{
-    font-size: x-large;
-}
-
-.font_weight_bold{
-    font-weight: 900;
-}
-
 /*-----------------------------TODO LO ANTERIOR ES COMUN A TODAS LAS ------------------------------------------------PAGINAS-------------------------------------*/
 
 /*--------------------LO SIGUIENTE CORRESPONDE A contacto.html----------------------------------------*/
@@ -136,6 +129,8 @@ article.index_article{/*MUY importante*/
     flex-wrap: wrap;
     justify-content: space-evenly;
     align-items: stretch;
+    font-size: x-large;
+    font-weight: bold;
 }
 
 .seccion_perro{
@@ -176,6 +171,12 @@ article.index_article{/*MUY importante*/
     font-style: italic;
 }
 /*--------------------LO SIGUIENTE CORRESPONDE A registro.html----------------------------------------*/
+
+.aricle_registro *{
+    font-size: x-large;
+    font-weight: bold;
+}
+
 .contenedor_img_captcha{
     display: flex;
     min-height: 130px;
@@ -203,14 +204,14 @@ div.contenedor_img_captcha p#texto_captcha{
 -moz-box-shadow: 2px 3px 4px 4px rgba(70,130,180,0.75);
 }
 
+form.formulario label, form.formulario h4{
+    margin-top: 10px;
+}
+
 form.formulario h4{
     box-shadow: 2px 3px 4px 4px rgba(70,130,180,0.75);
 -webkit-box-shadow: 2px 3px 4px 4px rgba(70,130,180,0.75);
 -moz-box-shadow: 2px 3px 4px 4px rgba(70,130,180,0.75);
-}
-
-.controles{/*Estilo de inputs*/
-    margin: 6px 0px;
 }
 
 .seleccion_frecuencia input{
@@ -253,6 +254,7 @@ form.formulario h4{
 
 .boton_form{/*Estilo del submit del formulario*/
 background-color: rgb(214, 132, 255);
+font-size: medium;
 border-radius: 10px;
 padding: 9px;
 width: 30%;
