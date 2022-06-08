@@ -47,7 +47,7 @@ nav ul.menu_desktop li{
     text-transform: uppercase;
 }
 
-nav ul.menu_desktop li a{
+nav ul.menu_desktop li a, div.fecha{
     padding: 20px;
     text-decoration: none;
     color: rgb(240, 255, 255);
@@ -148,9 +148,13 @@ article.index_article{/*MUY importante*/
     padding: 20px;
     width: 79vh;
     min-height: 36vh;
-    height: fit-content;
     height: auto;
     border-radius: 15px;
+    margin-bottom: 20px;
+    box-shadow: 2px 3px 4px 4px rgba(70,130,180,0.75);
+-webkit-box-shadow: 2px 3px 4px 4px rgba(70,130,180,0.75);
+-moz-box-shadow: 2px 3px 4px 4px rgba(70,130,180,0.75);
+
 }
 
 .foto_perro{
@@ -317,7 +321,7 @@ tbody.cuerpo_tablaD tr > td.favoritos {
     .responsive_display_ul{ 
         display: initial;
         position: absolute;
-        max-width: 100%;
+        width: 100%;
         /*top: 30vh;*/
     }
 
@@ -330,8 +334,8 @@ tbody.cuerpo_tablaD tr > td.favoritos {
         text-transform: uppercase;
         color: #35433c;
         font-size: 2em;
-        padding-right: 70vw;
         font-style: italic;
+        display: block;
     } 
 
     footer img{

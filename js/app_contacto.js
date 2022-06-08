@@ -25,7 +25,8 @@ function cargarTabla(){
         for(let h=0; h<datosPorDefecto.length; h++){//cada fila
             const fila = document.createElement("tr"); //dice que es una fila y pone nombre
             tabla_contacto.append(fila);//crea la fila
-    
+
+            
             for(let j in datosPorDefecto[h]){
                 const espacio = document.createElement('td');//dice que es una celda y pone nombre
                 let contenido = document.createTextNode(`${datosPorDefecto[h][j]}`);//crea el contenido
