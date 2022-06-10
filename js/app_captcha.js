@@ -53,7 +53,6 @@ function comprobarCaptcha(){
 function imprimir(e){
     e.preventDefault();
     let formulario = document.querySelector("#formulario");
-    let tablaDinamica = document.querySelector(".cuerpo_tablaD");
     let comprobacion = comprobarCaptcha();
     let formData = new FormData(formulario);
     //Captura de datos:
@@ -67,32 +66,38 @@ function imprimir(e){
     let claseFavorito = ``;
     ((comprobacion === 1) && (favorito == "Si"))? claseFavorito = `favoritos` : claseFavorito = ``;
 
+    let datosUsuario = [nombre, correo, favorito]//reune los datos
+
     if(comprobacion === 1){
-        crearUsuario(usuariosRegistrados, nombre, correo, favorito);//agrega un objeto
+        crearUsuario(usuariosRegistrados, datosUsuario);//agrega un objeto
+        escribirTabla(datosUsuario, claseFavorito);
+    }
+}
 
-        const fila = document.createElement("tr"); //dice que es una fila y pone nombre
-        tablaDinamica.appendChild(fila);//crea la fila
-        fila.classList.add("fila_dinamica");
+function escribirTabla(datosUsuario, claseFavorito){
+    let tablaDinamica = document.querySelector(".cuerpo_tablaD");
+    const fila = document.createElement("tr"); //dice que es una fila y pone nombre
+    tablaDinamica.appendChild(fila);//crea la fila
+    fila.classList.add("fila_dinamica");
 
-        let datosUsuario = [nombre, correo, "True", favorito]//reune los datos
-
-        for(let j=0; j<4; j++){//imprime los datos 
-            const espacio = document.createElement("td");//dice que es una celda y pone nombre
-            let contenido = document.createTextNode(`${datosUsuario[j]}`);//crea el contenido
-            fila.appendChild(espacio);//crea la celda
-            espacio.appendChild(contenido);//escribe la celda
-            if(claseFavorito == `favoritos`){
-                espacio.classList.add(`${claseFavorito}`);//pone clase favorito
-            }
+    for(let j=0; j<datosUsuario.length; j++){//imprime los datos 
+        const espacio = document.createElement("td");//dice que es una celda y pone nombre
+        let contenido = document.createTextNode(`${datosUsuario[j]}`);//crea el contenido
+        fila.appendChild(espacio);//crea la celda
+        espacio.appendChild(contenido);//escribe la celda
+        if(claseFavorito == `favoritos`){
+            espacio.classList.add(`${claseFavorito}`);//pone clase favorito
         }
     }
 }
 
-function crearUsuario(usuariosRegistrados, nombre, correo, favorito){
+
+
+function crearUsuario(usuariosRegistrados, datosUsuario){
     let usuarioC = {
-        "nombre" : nombre,
-        "correo" : correo,
-        "favorito": favorito
+        "nombre" : datosUsuario[0],
+        "correo" : datosUsuario[1],
+        "favorito": datosUsuario[2]
     }
     usuariosRegistrados.push(usuarioC);
 }
@@ -103,19 +108,16 @@ function cargaPorDefectoTabla(){
         {
             nombre : "Fidel Castro",
             correo : "elFideee@gmail.com",
-            validado : "True",
             fav : "Si",
         },
         {
             nombre : "Benedicto XVI",
             correo : "beniGGWP@gmail.com",
-            validado : "True",
             fav : "No"
         },
         {
             nombre : "Aristobulo Delvalle",
             correo1 : "delvalle_ahri@gmail.com",
-            validado : "True",
             fav : "Si"
         }
     ];
