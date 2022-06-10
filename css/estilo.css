@@ -268,7 +268,7 @@ color: #000000;
 
 .boton_form:active{
     background-color: rgb(214, 132, 255);
-}
+} 
 
 tbody.cuerpo_tablaD tr > td.favoritos {
     background-color: rgba(255, 253, 132, 0.856);
