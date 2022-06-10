@@ -1,11 +1,12 @@
 /*-ESTE SITIO FUE DESARROLLADO POR DIAZ MANUEL(C2) Y MEZA RAMIRO(C11) GRUPO 10----------------------------*/
 "use strict";
 
+let usuariosRegistrados = [];
+
 document.addEventListener('DOMContentLoaded', function captcha(){
     let botonEnviar = document.querySelector("#boton_enviar");
     botonEnviar.addEventListener('click', imprimir);
-    let usuariosRegistrados = [];
-    
+   
     let botonEnviar3 = document.querySelector("#boton_enviar_3");
     botonEnviar3.addEventListener("click", function(e){
         let comprobacion = comprobarCaptcha();
@@ -19,6 +20,7 @@ document.addEventListener('DOMContentLoaded', function captcha(){
     let botonReiniciar = document.querySelector("#boton_reiniciar");
     botonReiniciar.addEventListener("click", function(){
         document.querySelectorAll(".fila_dinamica").forEach(x => x.remove());
+        usuariosRegistrados = [];
     });//trae todas las filas, las borra una por una
     
     function generador(){//ACA SE CREA EL CAPTCHA
@@ -73,7 +75,7 @@ document.addEventListener('DOMContentLoaded', function captcha(){
         let datosUsuario = [nombre, correo, favorito]//reune los datos
     
         if(comprobacion === 1){
-            crearUsuario(usuariosRegistrados, datosUsuario);//agrega un objeto
+            crearUsuario(datosUsuario);//agrega un objeto
             escribirTabla(datosUsuario, claseFavorito);
         }
     }
@@ -97,7 +99,7 @@ document.addEventListener('DOMContentLoaded', function captcha(){
     
     
     
-    function crearUsuario(usuariosRegistrados, datosUsuario){
+    function crearUsuario(datosUsuario){
         let usuarioC = {
             "nombre" : datosUsuario[0],
             "correo" : datosUsuario[1],
