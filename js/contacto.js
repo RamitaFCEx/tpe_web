@@ -4,11 +4,11 @@
 document.addEventListener('DOMContentLoaded', function contacto(){
     function cargarTabla(){
         const datosPorDefecto = [
-            {
-                0 : "+54 9 011 457 147",
-                1 : "+598 9 011 457 148"
+            {    //fila
+                0 : "+54 9 011 457 147", //columna
+                1 : "+598 9 011 457 148" //columna
             },
-            {
+            {   
                 0 : "+54 9 011 457 149",
                 1 : "+598 9 011 457 150"
             },

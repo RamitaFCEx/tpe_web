@@ -290,7 +290,7 @@ div#contenedor_tablaD{
 
 @media only screen and (max-width:768px) { 
     /*-----------------Correspondiente al header comun---------------------------------*/
-    .header_footer_height{
+    header div.titulo {
         height: 10vh;
     }
 
@@ -327,7 +327,7 @@ div#contenedor_tablaD{
     }
 
     ul.menu_responsive li a{
-        padding: 3p;
+        padding: 3px;
         background-color: #4682b4;
     }
 
