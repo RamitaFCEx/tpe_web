@@ -322,6 +322,7 @@ div#contenedor_tablaD{
     }
 
     ul.menu_responsive li a{
+        padding: 3px;
         background-color: #4682b4;
     }
 
