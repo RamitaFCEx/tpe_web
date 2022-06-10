@@ -51,23 +51,23 @@
             <h3>Formulario</h3>
 
             <label for="nombre">Nombre:</label>
-                <input type="text"  name="nombre" class="form_inputs" placeholder="Nombre" required>
+                <input type="text"  name="nombre" class="form_inputs" placeholder="Nombre" value="nombre" required>
 
             <label for="correo">Correo electronico:</label>
-                <input type="email" name="correo" class="form_inputs" placeholder="Correo" required>
+                <input type="email" name="correo" class="form_inputs" placeholder="Correo" value="email" required>
 
             <label>Frecuencia de actualizaciones:</label>
                 <div class="seleccion_frecuencia"> 
                     <div>
-                        <input type="radio" name="frecuencia" id="diaria"><label for="diaria">Diaria</label>
+                        <input type="radio" name="frecuencia" id="diaria" value="frecuencia1"><label for="diaria">Diaria</label>
                     </div> 
 
                     <div>
-                        <input type="radio" name="frecuencia" id="semanal"><label for="semanal">Semanal</label>
+                        <input type="radio" name="frecuencia" id="semanal" value="frecuencia2"><label for="semanal">Semanal</label>
                     </div>
 
                     <div>
-                        <input type="radio" name="frecuencia" id="mensual"><label for="mensual">Mensual</label>
+                        <input type="radio" name="frecuencia" id="mensual" value="frecuencia3"><label for="mensual">Mensual</label>
                     </div>
                 </div>
 
@@ -78,7 +78,7 @@
                 <p id="texto_captcha"></p>
             </div>
 
-                <input class="form_inputs" type="text" name="captcha_escrito" id="respuestaCaptcha" placeholder="Captcha" required>
+                <input class="form_inputs" type="text" name="captcha_escrito" id="respuestaCaptcha" placeholder="Captcha" value="captcha" required>
 
             <h4 class="esperandoCaptha" id="resultado_captcha">Esperando</h4>
 
