@@ -39,9 +39,14 @@ header div img.titulo_OneShot{
     width: 93%;
 }
 
-.header_footer_height{
+.footer{
     height: 6.86vw;
     display: flex;
+}
+
+header div.titulo {
+    display: flex;
+    height: 6.86vw;
 }
 
 nav{
@@ -322,7 +327,7 @@ div#contenedor_tablaD{
     }
 
     ul.menu_responsive li a{
-        padding: 3px;
+        padding: 3p;
         background-color: #4682b4;
     }
 
