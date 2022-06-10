@@ -24,13 +24,16 @@ function generador(){//ACA SE CREA EL CAPTCHA
     const posiblesCaracteres = ['a', 'g', 'e', '4', 'r', 'p', '6', 'y', 'k','u','8'];
     let clave = [];//ACA SE GUARDAN LOS CARACTERES DEL CAPTCHA POR SEPARADO
     let textoClaveGenerador = "";
-    let titulo = document.querySelector("#texto_captcha");//captcha que se muestra en pantalla
+    let captcha = document.querySelector("#texto_captcha");//captcha que se muestra en pantalla
+    let respuestaDefecto = document.querySelector("#respuestaCaptcha");
+
     for (let i=0; i<5; i++){
         let indice = Math.floor(Math.random()*posiblesCaracteres.length);
         clave.push(posiblesCaracteres[indice])
     }
     textoClaveGenerador = clave.join("");
-    titulo.innerHTML = textoClaveGenerador;
+    captcha.innerHTML = textoClaveGenerador;
+    respuestaDefecto.value = textoClaveGenerador;//carga el captcha auto, para testeo rapido
 }
 
 function comprobarCaptcha(){

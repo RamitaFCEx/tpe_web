@@ -48,18 +48,18 @@
     <article class="aricle_registro">
         
         <form class="formulario" action="" id="formulario">
-            <h3>Formulario</h3>
+            <h3>Formulario (datos precargados en los campos)</h3>
 
             <label for="nombre">Nombre:</label>
-                <input type="text"  name="nombre" class="form_inputs" placeholder="Nombre" value="nombre" required>
+                <input type="text"  name="nombre" class="form_inputs" placeholder="Nombre" value="Nombre ej" required>
 
             <label for="correo">Correo electronico:</label>
-                <input type="email" name="correo" class="form_inputs" placeholder="Correo" value="email" required>
+                <input type="email" name="correo" class="form_inputs" placeholder="Correo" value="mail@ej.com" required>
 
             <label>Frecuencia de actualizaciones:</label>
                 <div class="seleccion_frecuencia"> 
                     <div>
-                        <input type="radio" name="frecuencia" id="diaria" value="frecuencia1"><label for="diaria">Diaria</label>
+                        <input type="radio" name="frecuencia" id="diaria" value="frecuencia1" checked><label for="diaria">Diaria (favoritos ♥♥)</label>
                     </div> 
 
                     <div>
@@ -70,15 +70,13 @@
                         <input type="radio" name="frecuencia" id="mensual" value="frecuencia3"><label for="mensual">Mensual</label>
                     </div>
                 </div>
-
-            <label for="validacion"> Al enviar este formulario aceptarias los terminos y condiciones: <input name="validacion" type="checkbox" id="validacion" required></label>
             
 
             <div class="contenedor_img_captcha" >
                 <p id="texto_captcha"></p>
             </div>
 
-                <input class="form_inputs" type="text" name="captcha_escrito" id="respuestaCaptcha" placeholder="Captcha" value="captcha" required>
+                <input class="form_inputs" type="text" name="captcha_escrito" id="respuestaCaptcha" placeholder="Captcha" required>
 
             <h4 class="esperandoCaptha" id="resultado_captcha">Esperando</h4>
 
