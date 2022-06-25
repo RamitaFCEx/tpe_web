@@ -322,6 +322,10 @@ button.button_toggle{
     nav div.menu_desktop{
         background-color: #35433c;
     }
+    .menu_desktop{
+        display: none;
+    }
+  
     button.button_toggle{
         display: inherit;
         background-color: #4682b4;
@@ -397,9 +401,6 @@ button.button_toggle{
     }
 
     .responsive_display{ 
-        display: none;
-    }
-    .prueba{
-        outline: 4px solid red;
+        display: flex;
     }
 }
