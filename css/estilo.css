@@ -54,26 +54,29 @@ nav{
     font-weight: bold;
 }
 
-nav ul.menu_desktop{
+.menu_desktop{
     display: flex;
-    outline: 2px solid #000000;
+    border: 2px solid #000000;
     justify-content: space-around;
-    padding: 20px;
+    
 }
 
-nav ul.menu_desktop li{
+nav div.menu_desktop button{
     display: inline-block;
     text-transform: uppercase;
 }
 
-nav ul.menu_desktop li a, div.fecha{
+nav div.menu_desktop button{
     padding: 20px;
-    text-decoration: none;
     color: rgb(240, 255, 255);
     font-style: italic;
+    font-weight: bolder;
+    background-color: #35433c;
+    border: none;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-nav ul.menu_desktop li a:hover{
+nav div.menu_desktop button:hover{
     background-color: rgb(127, 129, 128);
 }
 
@@ -288,6 +291,10 @@ div#contenedor_tablaD{
 -moz-box-shadow: 2px 3px 4px 4px rgba(70,130,180,0.75);
 }
 
+button.button_toggle{
+    display: none;
+}
+
 @media only screen and (max-width:768px) { 
     /*-----------------Correspondiente al header comun---------------------------------*/
     header div.titulo {
@@ -312,34 +319,21 @@ div#contenedor_tablaD{
         width: 70%;
         content: url(../img/vintage_logos2_celular2.jpg);
     }
-
-    header nav ul.menu_desktop{
-        display: none;
-    }
-   
-    nav div.container_menu_responsive{
-        display: initial;
-    }
-
-    .menu_responsive{
-        display: none;
+    nav div.menu_desktop{
         background-color: #35433c;
     }
-
-    ul.menu_responsive li a{
-        padding: 3px;
+    button.button_toggle{
+        display: inherit;
         background-color: #4682b4;
+        border: none;
     }
-
     button.button_toggle{
         position: absolute;
         top: 0;
         right: 0;
         height: 10vh;
         width: 15vw;
-        padding: 4px;
-        border: none;
-        background-color: #4682b4;
+        z-index: 0;
     }
 
     button.button_toggle i{
@@ -347,11 +341,7 @@ div#contenedor_tablaD{
         color: #35433c;
     }
 
-    .responsive_display_ul{ 
-        display: initial;
-        position: absolute;
-        width: 100%;
-    }
+   
 
     .responsive_li{
         margin: 0.2em 0;
@@ -404,5 +394,12 @@ div#contenedor_tablaD{
     /*--------------------Corresponde a contacto.html------------------------------------*/
     .contenedor_tabla{
         width: 93%;
+    }
+
+    .responsive_display{ 
+        display: none;
+    }
+    .prueba{
+        outline: 4px solid red;
     }
 }
