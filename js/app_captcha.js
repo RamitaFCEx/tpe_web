@@ -1,11 +1,11 @@
 /*-ESTE SITIO FUE DESARROLLADO POR DIAZ MANUEL(C2) Y MEZA RAMIRO(C11) GRUPO 10----------------------------*/
 "use strict";
 
-var botonEnviar = document.querySelector("#boton_enviar");
+let botonEnviar = document.querySelector("#boton_enviar");
 botonEnviar.addEventListener('click', imprimir);
-var usuariosRegistrados = [];
+let usuariosRegistrados = [];
 
-var botonEnviar3 = document.querySelector("#boton_enviar_3");
+let botonEnviar3 = document.querySelector("#boton_enviar_3");
 botonEnviar3.addEventListener("click", function(e){
     let comprobacion = comprobarCaptcha();
     if (comprobacion === 1){
@@ -15,7 +15,7 @@ botonEnviar3.addEventListener("click", function(e){
     }
 });
 
-var botonReiniciar = document.querySelector("#boton_reiniciar");
+let botonReiniciar = document.querySelector("#boton_reiniciar");
 botonReiniciar.addEventListener("click", function(){
     document.querySelectorAll(".fila_dinamica").forEach(x => x.remove());
     usuariosRegistrados = []

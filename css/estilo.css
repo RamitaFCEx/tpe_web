@@ -46,7 +46,6 @@ header div img.titulo_OneShot{
 
 header div.titulo {
     display: flex;
-    height: 6.86vw;
 }
 
 nav{
@@ -78,10 +77,6 @@ nav div.menu_desktop button{
 
 nav div.menu_desktop button:hover{
     background-color: rgb(127, 129, 128);
-}
-
-nav div.container_menu_responsive{
-    display: none;
 }
 
 article{
@@ -261,13 +256,14 @@ form.formulario h4{
 }
 
 .boton_form{/*Estilo del submit del formulario*/
-background-color: rgb(214, 132, 255);
-font-size: medium;
-border-radius: 10px;
-padding: 9px;
-width: 30%;
-align-self: center;
-color: #000000;
+    background-color: rgb(214, 132, 255);
+    font-size: medium;
+    border-radius: 10px;
+    padding: 9px;
+    width: 30%;
+    align-self: center;
+    color: #000000;
+    font-weight: bold;
 }
 
 .boton_form:hover{
@@ -346,7 +342,6 @@ button.button_toggle{
     }
 
    
-
     .responsive_li{
         margin: 0.2em 0;
     }
