@@ -2,13 +2,10 @@
 "use strict";
 document.addEventListener('DOMContentLoaded', function menuResponsive(){
     let menuResponsive = document.querySelector(".menu_desktop");
-     // let conteinerMenuResponsive = document.querySelector(".container_menu_responsive");
     
      let botonMenuResponsive = document.querySelector(".button_toggle");
      botonMenuResponsive.addEventListener("click", function(){
-        //  botonMenuResponsive.classList.toggle("prueba");
          menuResponsive.classList.toggle("responsive_display");
-        // menuResponsive.classList.toggle("responsive_display");
 
     });// hasta aca responsive
 
@@ -16,16 +13,17 @@ document.addEventListener('DOMContentLoaded', function menuResponsive(){
 
     // ARRANCA AJAX
     let indexArticle = document.querySelector(".index_article");
+
     let botonHome = document.querySelector("#boton_home");
     botonHome.addEventListener("click", async function(e){
         e.preventDefault();
-        botonHome.classList.toggle("validandoCaptcha");
         indexArticle.innerHTML = "<h2>Loading</h2>";
         try{
-            let response = await fetch("http://LocalHost:5500/index_article.html");
+            let response = await fetch("http://localhost:5500/index_article.html");
             if (response.ok) {
             let t = await response.text()
             indexArticle.innerHTML = t;
+            borrarScripts();
             }
         }
         catch(error){
@@ -39,16 +37,11 @@ document.addEventListener('DOMContentLoaded', function menuResponsive(){
     botonContacto.addEventListener('click', async function(e){
         e.preventDefault();
         try{
-            let response = await fetch("http://LocalHost:5500/contacto_article.html");
+            let response = await fetch("http://localhost:5500/contacto_article.html");
             if (response.ok) {
                 let t = await response.text()
                 indexArticle.innerHTML = t;
-                if(document.querySelector("#captchaRef")){
-                    document.querySelector("#captchaRef").remove();
-                }
-                if(document.querySelector("#contactoJs")){
-                    document.querySelector("#contactoJs").remove();
-                }
+                borrarScripts();
                 let fileref = document.createElement('script');         
                 fileref.setAttribute('type', 'text/javascript');         
                 fileref.setAttribute('src', 'js/app_contacto.js');
@@ -65,19 +58,12 @@ document.addEventListener('DOMContentLoaded', function menuResponsive(){
     let botonRegistro = document.querySelector("#boton_registro");
     botonRegistro.addEventListener("click", async function(e){
         e.preventDefault();
-        botonRegistro.classList.toggle("validandoCaptcha");
         try{
-            let response = await fetch("http://LocalHost:5500/registro_article.html");
+            let response = await fetch("http://localhost:5500/registro_article.html");
             if (response.ok) {
                 let t = await response.text()
                 indexArticle.innerHTML = t;
-                console.log(indexArticle.firstElementChild.className);
-                if(document.querySelector("#captchaRef")){
-                    document.querySelector("#captchaRef").remove();
-                }
-                if(document.querySelector("#contactoJs")){
-                    document.querySelector("#contactoJs").remove();
-                }
+                borrarScripts();
                 let fileref = document.createElement('script');         
                 fileref.setAttribute('type', 'text/javascript');         
                 fileref.setAttribute('src', 'js/app_captcha.js');
@@ -89,7 +75,34 @@ document.addEventListener('DOMContentLoaded', function menuResponsive(){
             indexArticle.innerHTML = "<h1>Connection error</h1>";
         }
     })
+
+    function borrarScripts(){
+        if(document.querySelector("#captchaRef")){
+            document.querySelector("#captchaRef").remove();
+        }
+        if(document.querySelector("#contactoJs")){
+            document.querySelector("#contactoJs").remove();
+        }
+    }
+
+    function cargarIndex(){
+        indexArticle.innerHTML = "<h2>Loading</h2>";
+        async function carga(){
+            try{
+                let response = await fetch("http://LocalHost:5500/index_article.html");
+                if (response.ok) {
+                let t = await response.text()
+                indexArticle.innerHTML = t;
+                borrarScripts();
+                }
+            }
+            catch(error){
+                indexArticle.innerHTML = "<h1>Connection error</h1>";
+            }
+        }
+        carga();
+    }
+    cargarIndex();
+    
 });
-
-
 

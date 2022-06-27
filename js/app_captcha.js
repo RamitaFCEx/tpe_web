@@ -18,7 +18,8 @@ botonEnviar3.addEventListener("click", function(e){
 var botonReiniciar = document.querySelector("#boton_reiniciar");
 botonReiniciar.addEventListener("click", function(){
     document.querySelectorAll(".fila_dinamica").forEach(x => x.remove());
-    usuariosRegistrados = []
+    usuariosRegistrados = [];
+    console.log(usuariosRegistrados);
 });//trae todas las filas, las borra una por una
 
 function generador(){//ACA SE CREA EL CAPTCHA
@@ -96,6 +97,7 @@ function crearUsuario(usuariosRegistrados, nombre, correo, favorito){
         "favorito": favorito
     }
     usuariosRegistrados.push(usuarioC);
+    console.log(usuariosRegistrados);
 }
 
 ///Datos precargados en tabla dinamica
