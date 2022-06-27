@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function menuResponsive(){
         e.preventDefault();
         indexArticle.innerHTML = "<h2>Loading</h2>";
         try{
-            let response = await fetch("http://192.168.0.154:5500/index_article.html");//ARREGLAR IP
+            let response = await fetch("http://localhost:5500/index_article.html");//ARREGLAR IP
             if (response.ok) {
             let t = await response.text()
             indexArticle.innerHTML = t;
@@ -37,11 +37,11 @@ document.addEventListener('DOMContentLoaded', function menuResponsive(){
     botonContacto.addEventListener('click', async function(e){
         e.preventDefault();
         try{
-            let response = await fetch("http://192.168.0.154:5500/contacto_article.html");
+            let response = await fetch("http://localhost:5500/contacto_article.html");
             if (response.ok) {
                 let t = await response.text()
                 indexArticle.innerHTML = t;
-                borrarScripts();
+                borrarScripts(); //evita riesgo de duplicar el mismo script y el error "no se encontro tal elemento"
                 let fileref = document.createElement('script');         
                 fileref.setAttribute('type', 'text/javascript');         
                 fileref.setAttribute('src', 'js/app_contacto.js');
@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function menuResponsive(){
     botonRegistro.addEventListener("click", async function(e){
         e.preventDefault();
         try{
-            let response = await fetch("http://192.168.0.154:5500/registro_article.html");
+            let response = await fetch("http://localhost:5500/registro_article.html");
             if (response.ok) {
                 let t = await response.text()
                 indexArticle.innerHTML = t;
@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', function menuResponsive(){
         indexArticle.innerHTML = "<h2>Loading</h2>";
         async function carga(){
             try{
-                let response = await fetch("http://192.168.0.154:5500/index_article.html");
+                let response = await fetch("http://localhost:5500/index_article.html");
                 if (response.ok) {
                 let t = await response.text()
                 indexArticle.innerHTML = t;
