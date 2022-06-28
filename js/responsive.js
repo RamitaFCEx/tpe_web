@@ -1,5 +1,20 @@
 /*-ESTE SITIO FUE DESARROLLADO POR DIAZ MANUEL(C2) Y MEZA RAMIRO(C11) GRUPO 10----------------------------*/
 "use strict";
+// async function getIpClient() {
+//     try {
+//       const response = await fetch('https://api.ipify.org?format=json');
+//       if (response.ok) {
+//         let ip = await response.json()
+//         console.log(ip.ip);
+//         ipServidor = ip.ip
+//       }
+//     } catch (error) {
+//       console.error(error);
+//     }
+//   }
+  
+//   getIpClient();
+
 document.addEventListener('DOMContentLoaded', function menuResponsive(){
     let menuResponsive = document.querySelector(".menu_desktop");
     
@@ -19,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function menuResponsive(){
         e.preventDefault();
         indexArticle.innerHTML = "<h2>Loading</h2>";
         try{
-            let response = await fetch("http://localhost:5500/index_article.html");//ARREGLAR IP
+            let response = await fetch("http://192.168.0.154:5500/index_article.html");//ARREGLAR IP
             if (response.ok) {
             let t = await response.text()
             indexArticle.innerHTML = t;
@@ -37,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function menuResponsive(){
     botonContacto.addEventListener('click', async function(e){
         e.preventDefault();
         try{
-            let response = await fetch("http://localhost:5500/contacto_article.html");
+            let response = await fetch("http://192.168.0.154:5500/contacto_article.html");
             if (response.ok) {
                 let t = await response.text()
                 indexArticle.innerHTML = t;
@@ -59,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function menuResponsive(){
     botonRegistro.addEventListener("click", async function(e){
         e.preventDefault();
         try{
-            let response = await fetch("http://localhost:5500/registro_article.html");
+            let response = await fetch("http://192.168.0.154:5500/registro_article.html");
             if (response.ok) {
                 let t = await response.text()
                 indexArticle.innerHTML = t;
@@ -89,7 +104,7 @@ document.addEventListener('DOMContentLoaded', function menuResponsive(){
         indexArticle.innerHTML = "<h2>Loading</h2>";
         async function carga(){
             try{
-                let response = await fetch("http://localhost:5500/index_article.html");
+                let response = await fetch("http://192.168.0.154:5500/index_article.html");
                 if (response.ok) {
                 let t = await response.text()
                 indexArticle.innerHTML = t;

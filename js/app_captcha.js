@@ -22,6 +22,8 @@ botonReiniciar.addEventListener("click", function(){
     console.log(usuariosRegistrados);
 });//trae todas las filas, las borra una por una
 
+
+
 function generador(){//ACA SE CREA EL CAPTCHA
     const posiblesCaracteres = ['a', 'g', 'e', '4', 'r', 'p', '6', 'y', 'k','u','8'];
     let clave = [];//ACA SE GUARDAN LOS CARACTERES DEL CAPTCHA POR SEPARADO
@@ -33,6 +35,10 @@ function generador(){//ACA SE CREA EL CAPTCHA
     }
     textoClaveGenerador = clave.join("");
     titulo.innerHTML = textoClaveGenerador;
+
+    ///QUITAR
+    let respuestaCodeada = document.querySelector("#respuestaCaptcha");
+    respuestaCodeada.value = textoClaveGenerador;
 }
 
 function comprobarCaptcha(){
@@ -75,18 +81,44 @@ function imprimir(e){
         const fila = document.createElement("tr"); //dice que es una fila y pone nombre
         tablaDinamica.appendChild(fila);//crea la fila
         fila.classList.add("fila_dinamica");
+        let datosUsuario = [nombre, correo, favorito, "Editar", "Borrar"]//reune los datos
 
-        let datosUsuario = [nombre, correo, "True", favorito]//reune los datos
-
-        for(let j=0; j<4; j++){//imprime los datos 
+        for(let j=0; j<datosUsuario.length; j++){//imprime los datos 
             const espacio = document.createElement("td");//dice que es una celda y pone nombre
-            let contenido = document.createTextNode(`${datosUsuario[j]}`);//crea el contenido
+            let contenido;
+            if(j<3){
+                contenido = document.createTextNode(`${datosUsuario[j]}`);//crea el contenido
+            }else{
+                contenido =  document.createElement("button");//Crea botones
+                contenido.innerHTML = datosUsuario[j];
+                contenido.classList.add(`${datosUsuario[j]}`);
+            }
+            
             fila.appendChild(espacio);//crea la celda
             espacio.appendChild(contenido);//escribe la celda
             if(claseFavorito == `favoritos`){
                 espacio.classList.add(`${claseFavorito}`);//pone clase favorito
             }
         }
+        asignarEvento();
+    }
+}
+
+function asignarEvento(){
+    let botonBorrar = document.querySelectorAll(".Borrar");
+    for(let b=0; b<botonBorrar.length;b++){
+       botonBorrar[b].addEventListener('click', function(){
+        botonBorrar[b].parentElement.parentElement.remove();
+       });
+    }
+
+
+
+    let botonEditar = document.querySelectorAll(".Editar");
+    for(let v=0; v<botonEditar.length;v++){
+       botonEditar[v].addEventListener('click', function(){
+        botonEditar[v].innerHTML = "CCCC";
+       });
     }
 }
 
@@ -97,7 +129,7 @@ function crearUsuario(usuariosRegistrados, nombre, correo, favorito){
         "favorito": favorito
     }
     usuariosRegistrados.push(usuarioC);
-    console.log(usuariosRegistrados);
+   // console.log(usuariosRegistrados);
 }
 
 ///Datos precargados en tabla dinamica
@@ -106,19 +138,16 @@ function cargaPorDefectoTabla(){
         {
             nombre : "Fidel Castro",
             correo : "elFideee@gmail.com",
-            validado : "True",
             fav : "Si",
         },
         {
             nombre : "Benedicto XVI",
             correo : "beniGGWP@gmail.com",
-            validado : "True",
             fav : "No"
         },
         {
             nombre : "Aristobulo Delvalle",
             correo1 : "delvalle_ahri@gmail.com",
-            validado : "True",
             fav : "Si"
         }
     ];
