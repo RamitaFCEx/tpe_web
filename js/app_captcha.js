@@ -70,10 +70,10 @@ function imprimir(e){
     let diaria = document.querySelector("#diaria");//cambiable
     let favorito = "";
     
-    (diaria.checked == true) ? favorito = "Si" : favorito = "No";
+    (diaria.checked == true) ? favorito = "true" : favorito = "false";
 
     let claseFavorito = ``;
-    ((comprobacion === 1) && (favorito == "Si"))? claseFavorito = `favoritos` : claseFavorito = ``;
+    ((comprobacion === 1) && (favorito == "true"))? claseFavorito = `favoritos` : claseFavorito = ``;
 
     if(comprobacion === 1){
         crearUsuario(usuariosRegistrados, nombre, correo, favorito);//agrega un objeto
@@ -126,7 +126,7 @@ function crearUsuario(usuariosRegistrados, nombre, correo, favorito){
     let usuarioC = {
         "nombre" : nombre,
         "correo" : correo,
-        "favorito": favorito
+        "fav": favorito
     }
     usuariosRegistrados.push(usuarioC);
    // console.log(usuariosRegistrados);
@@ -134,39 +134,53 @@ function crearUsuario(usuariosRegistrados, nombre, correo, favorito){
 
 ///Datos precargados en tabla dinamica
 function cargaPorDefectoTabla(){
-    const datosPorDefecto = [
-        {
-            nombre : "Fidel Castro",
-            correo : "elFideee@gmail.com",
-            fav : "Si",
-        },
-        {
-            nombre : "Benedicto XVI",
-            correo : "beniGGWP@gmail.com",
-            fav : "No"
-        },
-        {
-            nombre : "Aristobulo Delvalle",
-            correo1 : "delvalle_ahri@gmail.com",
-            fav : "Si"
-        }
-    ];
     let tablaDinamica = document.querySelector(".cuerpo_tablaD");
-        for(let h=0; h<datosPorDefecto.length; h++){//cada udsuario
-            const fila = document.createElement("tr"); //dice que es una fila y pone nombre
-            tablaDinamica.append(fila);//crea la fila
-            fila.classList.add("fila_dinamica");//esta clase sirve para borrar la tabla
+    async function traeDatos(){
+        try{
+            let response = await fetch("https://62b8b677f4cb8d63df61b878.mockapi.io/api/R-OS/usuarios");
+            if (response.ok) {
+                let objetoUsuarios = await response.json();
+                for(let individuo of (objetoUsuarios)){
+                    console.log(individuo.fav);
+                    const fila = document.createElement("tr"); //dice que es una fila y pone nombre
+                    tablaDinamica.append(fila);//crea la fila
+                     fila.classList.add("fila_dinamica");//esta clase sirve para borrarla tabla
             
-            for(let j in datosPorDefecto[h]){
-                const espacio = document.createElement('td');//dice que es una celda y pone nombre
-                let contenido = document.createTextNode(`${datosPorDefecto[h][j]}`);//crea el contenido
-                fila.appendChild(espacio);//crea la celda
-                espacio.appendChild(contenido);//escribe la celda
-                if(datosPorDefecto[h].fav == "Si"){
-                    espacio.classList.add(`favoritos`);//pinta las celdas favoritas
+                    for(let j in individuo){
+                        const espacio = document.createElement('td');//dice que es una celda y pone nombre
+                        let contenido = document.createTextNode(`${individuo[j]}`);//crea el contenido
+                        if(j != "id"){
+                            fila.appendChild(espacio);//crea la celda
+                            espacio.appendChild(contenido);//escribe la celda
+                            if(individuo.fav === true){
+                                espacio.classList.add(`favoritos`);//pinta las celdas favoritas
+                            }
+                        }
+                        
+                    }
+                    for(let j=0; j<2; j++){//imprime los botones
+                        const espacio = document.createElement("td");//dice que es una celda y pone nombre
+                        let contenido =  document.createElement("button");//Crea botones
+                        contenido.innerHTML = (j==0)? "Editar":"Borrar";
+                        contenido.classList.add(`${contenido.innerHTML}`);
+                        
+                        
+                        fila.appendChild(espacio);//crea la celda
+                        espacio.appendChild(contenido);//escribe la celda
+                        console.log(espacio.previousSibling.classList[0]);
+                        if(espacio.previousSibling.classList[0] === `favoritos`){
+                            espacio.classList.add(`favoritos`);//pone clase favorito
+                        }
+                    }
                 }
+                asignarEvento();
             }
         }
+        catch(error){
+            console.log("<h1>Connection error</h1>");
+        }
+    }
+    traeDatos();
 }
 
 cargaPorDefectoTabla();
