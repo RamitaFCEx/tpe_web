@@ -108,8 +108,6 @@ function asignarEvento(){
     let botonBorrar = document.querySelectorAll(".Borrar");
     for(let b=0; b<botonBorrar.length;b++){
        botonBorrar[b].addEventListener('click', async function(){
-        // botonBorrar[b].parentElement.parentElement.remove();
-        console.log(botonBorrar[b].parentElement.parentElement.id);
         botonBorrar[b].parentElement.parentElement.remove();
         try{
             let response = await fetch(`https://62b8b677f4cb8d63df61b878.mockapi.io/api/R-OS/usuarios/${botonBorrar[b].parentElement.parentElement.id}`, {
@@ -119,15 +117,38 @@ function asignarEvento(){
                 console.log("Item Eliminado");
             }
         }catch(error){
-            console.log("<h1>Connection error</h1>");
+            console.log("Falla de borrado");
         }
 
        });
     }
+
     let botonEditar = document.querySelectorAll(".Editar");
     for(let v=0; v<botonEditar.length;v++){
-       botonEditar[v].addEventListener('click', function(){
+       botonEditar[v].addEventListener('click', async function(){
         botonEditar[v].innerHTML = "CCCC";
+        let nomreEditado = document.querySelector("#nombre_editado").value;
+        let correoEditado = document.querySelector("#correo_editado").value;
+        let usarioEditado = {
+            "nombre" : nomreEditado,
+            "correo" : correoEditado
+        }
+        const fila = document.createElement("tr");
+        const celda = document.createElement("td");
+        let contenido = document.createTextNode("Editado");
+        try{
+            let response = await fetch(`https://62b8b677f4cb8d63df61b878.mockapi.io/api/R-OS/usuarios/${botonEditar[v].parentElement.parentElement.id}`, {
+                "method" : "PUT",
+                "headers" : {"Content-type" : "application/json"},
+                "body" : JSON.stringify(usarioEditado)
+            });
+            if(response.ok){
+                console.log("editado con exito");
+                cargaPorDefectoTabla();
+            }
+        }catch(error){
+            console.log("Falla de edicion");
+        }
        });
     }
 }
@@ -145,6 +166,7 @@ function crearUsuario(usuariosRegistrados, nombre, correo, favorito){
 ///Datos precargados en tabla dinamica
 function cargaPorDefectoTabla(){
     let tablaDinamica = document.querySelector(".cuerpo_tablaD");
+    tablaDinamica.innerHTML = "";
     async function traeDatos(){
         try{
             let response = await fetch("https://62b8b677f4cb8d63df61b878.mockapi.io/api/R-OS/usuarios");
