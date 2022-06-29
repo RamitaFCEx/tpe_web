@@ -1,19 +1,5 @@
 /*-ESTE SITIO FUE DESARROLLADO POR DIAZ MANUEL(C2) Y MEZA RAMIRO(C11) GRUPO 10----------------------------*/
 "use strict";
-// async function getIpClient() {
-//     try {
-//       const response = await fetch('https://api.ipify.org?format=json');
-//       if (response.ok) {
-//         let ip = await response.json()
-//         console.log(ip.ip);
-//         ipServidor = ip.ip
-//       }
-//     } catch (error) {
-//       console.error(error);
-//     }
-//   }
-  
-//   getIpClient();
 
 document.addEventListener('DOMContentLoaded', function menuResponsive(){
     let menuResponsive = document.querySelector(".menu_desktop");
@@ -23,8 +9,6 @@ document.addEventListener('DOMContentLoaded', function menuResponsive(){
          menuResponsive.classList.toggle("responsive_display");
 
     });// hasta aca responsive
-
-
 
     // ARRANCA AJAX
     let indexArticle = document.querySelector(".index_article");
@@ -44,9 +28,7 @@ document.addEventListener('DOMContentLoaded', function menuResponsive(){
         catch(error){
             indexArticle.innerHTML = "<h1>Connection error</h1>";
         }
-        
-
-    })
+    });
 
     let botonContacto = document.querySelector("#boton_contacto");
     botonContacto.addEventListener('click', async function(e){
@@ -82,14 +64,14 @@ document.addEventListener('DOMContentLoaded', function menuResponsive(){
                 let fileref = document.createElement('script');         
                 fileref.setAttribute('type', 'text/javascript');         
                 fileref.setAttribute('src', 'js/app_captcha.js');
-                fileref.setAttribute('id', 'captchaRef')     
+                fileref.setAttribute('id', 'captchaRef');    
                 document.getElementsByTagName('head')[0].appendChild(fileref);
             }
         }
         catch(error){
             indexArticle.innerHTML = "<h1>Connection error</h1>";
         }
-    })
+    });
 
     function borrarScripts(){
         if(document.querySelector("#captchaRef")){

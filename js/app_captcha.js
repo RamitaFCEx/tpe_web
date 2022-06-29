@@ -107,13 +107,23 @@ function imprimir(e){
 function asignarEvento(){
     let botonBorrar = document.querySelectorAll(".Borrar");
     for(let b=0; b<botonBorrar.length;b++){
-       botonBorrar[b].addEventListener('click', function(){
+       botonBorrar[b].addEventListener('click', async function(){
+        // botonBorrar[b].parentElement.parentElement.remove();
+        console.log(botonBorrar[b].parentElement.parentElement.id);
         botonBorrar[b].parentElement.parentElement.remove();
+        try{
+            let response = await fetch(`https://62b8b677f4cb8d63df61b878.mockapi.io/api/R-OS/usuarios/${botonBorrar[b].parentElement.parentElement.id}`, {
+                "method" : "DELETE"
+            });
+            if (response.ok) {
+                console.log("Item Eliminado");
+            }
+        }catch(error){
+            console.log("<h1>Connection error</h1>");
+        }
+
        });
     }
-
-
-
     let botonEditar = document.querySelectorAll(".Editar");
     for(let v=0; v<botonEditar.length;v++){
        botonEditar[v].addEventListener('click', function(){
@@ -141,8 +151,8 @@ function cargaPorDefectoTabla(){
             if (response.ok) {
                 let objetoUsuarios = await response.json();
                 for(let individuo of (objetoUsuarios)){
-                    console.log(individuo.fav);
                     const fila = document.createElement("tr"); //dice que es una fila y pone nombre
+                    fila.setAttribute('id', `${individuo.id}`); 
                     tablaDinamica.append(fila);//crea la fila
                      fila.classList.add("fila_dinamica");//esta clase sirve para borrarla tabla
             
@@ -167,7 +177,6 @@ function cargaPorDefectoTabla(){
                         
                         fila.appendChild(espacio);//crea la celda
                         espacio.appendChild(contenido);//escribe la celda
-                        console.log(espacio.previousSibling.classList[0]);
                         if(espacio.previousSibling.classList[0] === `favoritos`){
                             espacio.classList.add(`favoritos`);//pone clase favorito
                         }
