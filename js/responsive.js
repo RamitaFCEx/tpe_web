@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function menuResponsive(){
         e.preventDefault();
         indexArticle.innerHTML = "<h2>Loading</h2>";
         try{
-            let response = await fetch("http://192.168.0.154:5500/index_article.html");//ARREGLAR IP
+            let response = await fetch("http://localhost:5500/index_article.html");//ARREGLAR IP
             if (response.ok) {
             let t = await response.text()
             indexArticle.innerHTML = t;
@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function menuResponsive(){
     botonContacto.addEventListener('click', async function(e){
         e.preventDefault();
         try{
-            let response = await fetch("http://192.168.0.154:5500/contacto_article.html");
+            let response = await fetch("http://localhost:5500/contacto_article.html");
             if (response.ok) {
                 let t = await response.text()
                 indexArticle.innerHTML = t;
@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function menuResponsive(){
     botonRegistro.addEventListener("click", async function(e){
         e.preventDefault();
         try{
-            let response = await fetch("http://192.168.0.154:5500/registro_article.html");
+            let response = await fetch("http://localhost:5500/registro_article.html");
             if (response.ok) {
                 let t = await response.text()
                 indexArticle.innerHTML = t;
@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', function menuResponsive(){
         indexArticle.innerHTML = "<h2>Loading</h2>";
         async function carga(){
             try{
-                let response = await fetch("http://192.168.0.154:5500/index_article.html");
+                let response = await fetch("http://localhost:5500/index_article.html");
                 if (response.ok) {
                 let t = await response.text()
                 indexArticle.innerHTML = t;
@@ -103,3 +103,26 @@ document.addEventListener('DOMContentLoaded', function menuResponsive(){
     
 });
 
+async function DatosApi () {
+    const url = "https://62b8b677f4cb8d63df61b878.mockapi.io/api/R-OS/";
+    const tabla  = document.querySelector(".cuerpo_tablaD");
+    tabla.innerHTML = " ";  //comienza vacio
+    
+    try {
+        let get = await fetch(url);
+        let json = await get.json();
+
+        for (const registrado of json) {
+            let nombre = registrado.nombre;
+            let correo = registrado.correo;
+            tabla.innerHTML +=  `<tr> ${nombre} </tr>`
+                                `<tr> ${correo} </tr`
+            
+        }
+        
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+DatosApi();
