@@ -104,7 +104,7 @@ function imprimir(e){
     }
 }
 
-function asignarEvento(){
+function asignarEventoBorrar(){
     let botonBorrar = document.querySelectorAll(".Borrar");
     for(let b=0; b<botonBorrar.length;b++){
        botonBorrar[b].addEventListener('click', async function(){
@@ -122,11 +122,13 @@ function asignarEvento(){
 
        });
     }
+}
 
+function asignarEventoEditar(){
     let botonEditar = document.querySelectorAll(".Editar");
     for(let v=0; v<botonEditar.length;v++){
        botonEditar[v].addEventListener('click', async function(){
-        botonEditar[v].innerHTML = "CCCC";
+        botonEditar[v].innerHTML = "Editando";
         let nomreEditado = document.querySelector("#nombre_editado").value;
         let correoEditado = document.querySelector("#correo_editado").value;
         let frecuencia = document.querySelector("#frecuencia_editada").value;
@@ -143,7 +145,7 @@ function asignarEvento(){
             });
             if(response.ok){
                 console.log("editado con exito");
-                cargaPorDefectoTabla();
+                cargaTabla();
             }
         }catch(error){
             console.log("Falla de edicion");
@@ -161,58 +163,57 @@ function crearUsuario(usuariosRegistrados, nombre, correo, favorito){
     usuariosRegistrados.push(usuarioC);
 }
 
-///Datos precargados en tabla dinamica
-function cargaPorDefectoTabla(){
-    let tablaDinamica = document.querySelector(".cuerpo_tablaD");
-    tablaDinamica.innerHTML = "";
-    async function traeDatos(){
-        try{
-            let response = await fetch("https://62b8b677f4cb8d63df61b878.mockapi.io/api/R-OS/usuarios");
-            if (response.ok) {
-                let objetoUsuarios = await response.json();
-                for(let individuo of (objetoUsuarios)){
-                    const fila = document.createElement("tr"); //dice que es una fila y pone nombre
-                    fila.setAttribute('id', `${individuo.id}`); 
-                    tablaDinamica.append(fila);//crea la fila
-                    fila.classList.add("fila_dinamica");//esta clase sirve para borrarla tabla
-            
-                    for(let j in individuo){
-                        const espacio = document.createElement('td');//dice que es una celda y pone nombre
-                        let contenido = document.createTextNode(`${individuo[j]}`);//crea el contenido
-                        if(j != "id"){
-                            fila.appendChild(espacio);//crea la celda
-                            espacio.appendChild(contenido);//escribe la celda
-                            if(individuo.fav == true||individuo.fav == "true"){
-                                espacio.classList.add(`favoritos`);//pinta las celdas favoritas
-                            }
-                        }
-                        
-                    }
-                    for(let j=0; j<2; j++){//imprime los botones
-                        const espacio = document.createElement("td");//dice que es una celda y pone nombre
-                        let contenido =  document.createElement("button");//Crea botones
-                        contenido.innerHTML = (j==0)? "Editar":"Borrar";
-                        contenido.classList.add(`${contenido.innerHTML}`);
-                        
-                        
+///Datos precargados en tabla dinamica   
+async function cargaTabla(){
+    try{
+        let tablaDinamica = document.querySelector(".cuerpo_tablaD");
+        tablaDinamica.innerHTML = "";
+        let response = await fetch("https://62b8b677f4cb8d63df61b878.mockapi.io/api/R-OS/usuarios");
+        if (response.ok) {
+            let objetoUsuarios = await response.json();
+            for(let individuo of (objetoUsuarios)){
+                const fila = document.createElement("tr"); //dice que es una fila y pone nombre
+                fila.setAttribute('id', `${individuo.id}`); 
+                tablaDinamica.append(fila);//crea la fila
+                fila.classList.add("fila_dinamica");//esta clase sirve para borrarla tabla
+        
+                for(let j in individuo){
+                    const espacio = document.createElement('td');//dice que es una celda y pone nombre
+                    let contenido = document.createTextNode(`${individuo[j]}`);//crea el contenido
+                    if(j != "id"){
                         fila.appendChild(espacio);//crea la celda
                         espacio.appendChild(contenido);//escribe la celda
-                        if(espacio.previousSibling.classList[0] === `favoritos`){
-                            espacio.classList.add(`favoritos`);//pone clase favorito
+                        if(individuo.fav == true||individuo.fav == "true"){
+                            espacio.classList.add(`favoritos`);//pinta las celdas favoritas
                         }
                     }
+                    
                 }
-                asignarEvento();
+                for(let j=0; j<2; j++){//imprime los botones
+                    const espacio = document.createElement("td");//dice que es una celda y pone nombre
+                    let contenido =  document.createElement("button");//Crea botones
+                    contenido.innerHTML = (j==0)? "Editar":"Borrar";
+                    contenido.classList.add(`${contenido.innerHTML}`);
+                    
+                    
+                    fila.appendChild(espacio);//crea la celda
+                    espacio.appendChild(contenido);//escribe la celda
+                    if(espacio.previousSibling.classList[0] === `favoritos`){
+                        espacio.classList.add(`favoritos`);//pone clase favorito
+                    }
+                }
             }
-        }
-        catch(error){
-            console.log("<h1>Connection error</h1>");
+            asignarEventoBorrar();
+            asignarEventoEditar();
         }
     }
-    traeDatos();
+    catch(error){
+        console.log("<h1>Connection error</h1>");
+    }
 }
 
-cargaPorDefectoTabla();
+
+cargaTabla();
 generador();
 
 
