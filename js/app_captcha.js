@@ -44,7 +44,7 @@ function generador(){//ACA SE CREA EL CAPTCHA
 function comprobarCaptcha(){
     let respuestaCaptcha = document.querySelector("#respuestaCaptcha");// respuesta del humano al captcha
     let resultado_captcha = document.querySelector("#resultado_captcha");//h4 que dice si se valido o no
-    let captcha = document.querySelector("#texto_captcha");
+    let captcha = document.querySelector("#texto_captcha");//Captcha generado
     if((respuestaCaptcha.value == captcha.innerHTML)){//compara
         resultado_captcha.innerHTML = "Validado";
         resultado_captcha.classList.add("validandoCaptcha");
@@ -61,46 +61,44 @@ function comprobarCaptcha(){
 function imprimir(e){
     e.preventDefault();
     let formulario = document.querySelector("#formulario");
-    let tablaDinamica = document.querySelector(".cuerpo_tablaD");
+    //let tablaDinamica = document.querySelector(".cuerpo_tablaD");//NO USAR
     let comprobacion = comprobarCaptcha();
     let formData = new FormData(formulario);
     //Captura de datos:
     let nombre = formData.get("nombre");
     let correo = formData.get("correo");
     let diaria = document.querySelector("#diaria");//cambiable
-    let favorito = "";
+    let favorito = "";//Atributo del usuario
     
     (diaria.checked == true) ? favorito = "true" : favorito = "false";
 
-    let claseFavorito = ``;
+    let claseFavorito = ``;//Condicion para resaltar fila
     ((comprobacion === 1) && (favorito == "true"))? claseFavorito = `favoritos` : claseFavorito = ``;
 
     if(comprobacion === 1){
-        crearUsuario(usuariosRegistrados, nombre, correo, favorito);//agrega un objeto
-
-        const fila = document.createElement("tr"); //dice que es una fila y pone nombre
-        tablaDinamica.appendChild(fila);//crea la fila
-        fila.classList.add("fila_dinamica");
-        let datosUsuario = [nombre, correo, favorito, "Editar", "Borrar"]//reune los datos
-
-        for(let j=0; j<datosUsuario.length; j++){//imprime los datos 
-            const espacio = document.createElement("td");//dice que es una celda y pone nombre
-            let contenido;
-            if(j<3){
-                contenido = document.createTextNode(`${datosUsuario[j]}`);//crea el contenido
-            }else{
-                contenido =  document.createElement("button");//Crea botones
-                contenido.innerHTML = datosUsuario[j];
-                contenido.classList.add(`${datosUsuario[j]}`);
-            }
-            
-            fila.appendChild(espacio);//crea la celda
-            espacio.appendChild(contenido);//escribe la celda
-            if(claseFavorito == `favoritos`){
-                espacio.classList.add(`${claseFavorito}`);//pone clase favorito
-            }
+        //crearUsuario(usuariosRegistrados, nombre, correo, favorito);//agrega un objeto
+        let datosUsuarioNuevo = {
+            "nombre" : nombre,
+            "correo" : correo,
+            "fav" : favorito
         }
-        asignarEvento();
+        agregarUsuario(datosUsuarioNuevo);
+    }
+}
+
+async function agregarUsuario(datosUsuarioNuevo){
+    try{
+        let response = await fetch(`https://62b8b677f4cb8d63df61b878.mockapi.io/api/R-OS/usuarios`, {
+            "method" : "POST",
+            "headers" : {"Content-type" : "application/json"},
+            "body" : JSON.stringify(datosUsuarioNuevo)
+        });
+        if(response.ok){
+            console.log("Usuario agregado con exito");
+            cargaTabla();
+        }
+    }catch(error){
+        console.log("Falla de edicion");
     }
 }
 
@@ -154,14 +152,6 @@ function asignarEventoEditar(){
     }
 }
 
-function crearUsuario(usuariosRegistrados, nombre, correo, favorito){
-    let usuarioC = {
-        "nombre" : nombre,
-        "correo" : correo,
-        "fav": favorito
-    }
-    usuariosRegistrados.push(usuarioC);
-}
 
 ///Datos precargados en tabla dinamica   
 async function cargaTabla(){
