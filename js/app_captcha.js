@@ -129,13 +129,12 @@ function asignarEvento(){
         botonEditar[v].innerHTML = "CCCC";
         let nomreEditado = document.querySelector("#nombre_editado").value;
         let correoEditado = document.querySelector("#correo_editado").value;
+        let frecuencia = document.querySelector("#frecuencia_editada").value;
         let usarioEditado = {
             "nombre" : nomreEditado,
-            "correo" : correoEditado
+            "correo" : correoEditado,
+            "fav" : frecuencia
         }
-        const fila = document.createElement("tr");
-        const celda = document.createElement("td");
-        let contenido = document.createTextNode("Editado");
         try{
             let response = await fetch(`https://62b8b677f4cb8d63df61b878.mockapi.io/api/R-OS/usuarios/${botonEditar[v].parentElement.parentElement.id}`, {
                 "method" : "PUT",
@@ -160,7 +159,6 @@ function crearUsuario(usuariosRegistrados, nombre, correo, favorito){
         "fav": favorito
     }
     usuariosRegistrados.push(usuarioC);
-   // console.log(usuariosRegistrados);
 }
 
 ///Datos precargados en tabla dinamica
@@ -176,7 +174,7 @@ function cargaPorDefectoTabla(){
                     const fila = document.createElement("tr"); //dice que es una fila y pone nombre
                     fila.setAttribute('id', `${individuo.id}`); 
                     tablaDinamica.append(fila);//crea la fila
-                     fila.classList.add("fila_dinamica");//esta clase sirve para borrarla tabla
+                    fila.classList.add("fila_dinamica");//esta clase sirve para borrarla tabla
             
                     for(let j in individuo){
                         const espacio = document.createElement('td');//dice que es una celda y pone nombre
@@ -184,7 +182,7 @@ function cargaPorDefectoTabla(){
                         if(j != "id"){
                             fila.appendChild(espacio);//crea la celda
                             espacio.appendChild(contenido);//escribe la celda
-                            if(individuo.fav === true){
+                            if(individuo.fav == true||individuo.fav == "true"){
                                 espacio.classList.add(`favoritos`);//pinta las celdas favoritas
                             }
                         }
