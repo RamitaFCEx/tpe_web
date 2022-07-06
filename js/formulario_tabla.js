@@ -2,49 +2,52 @@
 "use strict";
 
 var botonEnviar = document.querySelector("#boton_enviar");
-botonEnviar.addEventListener('click', imprimir);
+
+var formularioAEnviar = document.querySelector("#formulario");
+formularioAEnviar.addEventListener('submit', imprimir);
 
 var botonEnviar3 = document.querySelector("#boton_enviar_3");
 botonEnviar3.addEventListener("click", function(e){
     let comprobacion = comprobarCaptcha();
     if (comprobacion === 1){
-        for(let i = 0; i<3;i++){
-            imprimir(e);
+        for(let i = 0; i<2;i++){
+            botonEnviar.click();//simula clickear 3 veces en el boton enviar
         }
     }
 });
 
 var botonReiniciar = document.querySelector("#boton_reiniciar");
 botonReiniciar.addEventListener("click", async function(){
-    document.querySelectorAll(".fila_dinamica").forEach(x => x.remove());
     let arregloIdes = [];
+    let resultadoReinicio = document.querySelector("#resultado-reinicio");
     try{
+        resultadoReinicio.innerHTML = "BORRANDO, esto puede demorar unos segundos, no salga de la pagina mientras se realiza la operacion"
         let listaUsuarios = await fetch(`https://62b8b677f4cb8d63df61b878.mockapi.io/api/R-OS/usuarios`);
         if (listaUsuarios.ok) {
             let objetoUsuarios = await listaUsuarios.json();
             for(let individuo of (objetoUsuarios)){
                 arregloIdes.push(individuo.id);
             }
-            console.log(arregloIdes);
+            try{
+                let r=0;
+                while(r<arregloIdes.length){
+                    let response = await fetch(`https://62b8b677f4cb8d63df61b878.mockapi.io/api/R-OS/usuarios/${arregloIdes[r]}`, {
+                    "method" : "DELETE"
+                    });
+                    r++;
+                }
+                resultadoReinicio.innerHTML = "Base de datos eliminada con exito";
+                document.querySelectorAll(".fila_dinamica").forEach(x => x.remove());
+                console.log("Base de datos eliminada");
+            }catch(error){
+                console.log("Falla de Base de datos eliminada");
+            }  
+           // console.log(arregloIdes);
         }
     }catch(error){
             console.log("Falla de Base de datos eliminada");
     }
-    try{
-        let r=0;
-        while(r<arregloIdes.length){
-            let response = await fetch(`https://62b8b677f4cb8d63df61b878.mockapi.io/api/R-OS/usuarios/${arregloIdes[r]}`, {
-            "method" : "DELETE"
-            });
-            if (response.ok) {
-                console.log("Base de datos eliminada");
-            }
-            r++
-        }
-        
-    }catch(error){
-        console.log("Falla de Base de datos eliminada");
-    }   
+     
 });//trae todas las filas, las borra una por una
 
 function imprimir(e){
@@ -59,7 +62,7 @@ function imprimir(e){
     let diaria = document.querySelector("#diaria");//cambiable
     let favorito = "";//Atributo del usuario
     
-    (diaria.checked == true) ? favorito = "true" : favorito = "false";
+    (diaria.checked === true) ? favorito = "true" : favorito = "false";
 
     if(comprobacion === 1){
         //crearUsuario(usuariosRegistrados, nombre, correo, favorito);//agrega un objeto
@@ -82,6 +85,7 @@ async function agregarUsuario(datosUsuarioNuevo){
         if(response.ok){
             console.log("Usuario agregado con exito");
             cargaTabla();
+            generador();
         }
     }catch(error){
         console.log("Falla de edicion");
@@ -92,6 +96,7 @@ async function agregarUsuario(datosUsuarioNuevo){
 async function cargaTabla(){
     try{
         let tablaDinamica = document.querySelector(".cuerpo_tablaD");
+        tablaDinamica.innerHTML = "------------------Loading...------------------";
         let response = await fetch("https://62b8b677f4cb8d63df61b878.mockapi.io/api/R-OS/usuarios");
         if (response.ok) {
             let objetoUsuarios = await response.json();
@@ -143,11 +148,14 @@ function asignarEventoBorrar(){
     for(let b=0; b<botonBorrar.length;b++){
        botonBorrar[b].addEventListener('click', async function(){
         botonBorrar[b].parentElement.parentElement.remove();
+        console.log(botonBorrar[b].parentElement.parentElement.id);
         try{
             let response = await fetch(`https://62b8b677f4cb8d63df61b878.mockapi.io/api/R-OS/usuarios/${botonBorrar[b].parentElement.parentElement.id}`, {
                 "method" : "DELETE"
             });
             if (response.ok) {
+                
+                console.log(botonBorrar[b].parentElement.parentElement.id);
                 console.log("Item Eliminado");
             }
         }catch(error){
@@ -160,6 +168,7 @@ function asignarEventoBorrar(){
 
 function asignarEventoEditar(){
     let botonEditar = document.querySelectorAll(".Editar");
+    let resultadoEdicion = document.querySelector("#resultado-edicion");
     for(let v=0; v<botonEditar.length;v++){
        botonEditar[v].addEventListener('click', async function(){
         botonEditar[v].innerHTML = "Editando";
@@ -171,22 +180,31 @@ function asignarEventoEditar(){
             "correo" : correoEditado,
             "fav" : frecuencia
         }
-        try{
-            let response = await fetch(`https://62b8b677f4cb8d63df61b878.mockapi.io/api/R-OS/usuarios/${botonEditar[v].parentElement.parentElement.id}`, {
-                "method" : "PUT",
-                "headers" : {"Content-type" : "application/json"},
-                "body" : JSON.stringify(usarioEditado)
-            });
-            if(response.ok){
-                console.log("editado con exito");
-                cargaTabla();
+        if(nomreEditado != "" && correoEditado != ""){
+            try{
+                let response = await fetch(`https://62b8b677f4cb8d63df61b878.mockapi.io/api/R-OS/usuarios/${botonEditar[v].parentElement.parentElement.id}`, {
+                    "method" : "PUT",
+                    "headers" : {"Content-type" : "application/json"},
+                    "body" : JSON.stringify(usarioEditado)
+                });
+                if(response.ok){
+                    console.log("editado con exito");
+                    resultadoEdicion.innerHTML = "Editado con exito (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧";
+                    cargaTabla();
+                }
+            }catch(error){
+                console.log("Falla de edicion");
             }
-        }catch(error){
-            console.log("Falla de edicion");
+        }else{
+            botonEditar[v].innerHTML = "Error!!";
+            resultadoEdicion.innerHTML = "**Error de edicion, complete los campos**";
         }
        });
     }
+
 }
+
+
 
 function generador(){//ACA SE CREA EL CAPTCHA
     const posiblesCaracteres = ['a', 'g', 'e', '4', 'r', 'p', '6', 'y', 'k','u','8'];

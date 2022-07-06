@@ -1,3 +1,5 @@
+<!-- /*-ESTE SITIO FUE DESARROLLADO POR DIAZ MANUEL(C2) Y MEZA RAMIRO(C11) GRUPO 10----------------------------*/
+/* En este html esta lo relacionado a la seccion registro de la pagina*/  -->
 <article class="article_registro">
     <form class="formulario" action="" id="formulario">
         <h3>Formulario (datos precargados en los campos)</h3>
@@ -33,15 +35,15 @@
         <h4 class="esperandoCaptha" id="resultado_captcha">Esperando</h4>
 
         <div class="contenedor_botones">
-            <button id="boton_enviar" class="form_inputs boton_form" type="button">Enviar</button>
+            <button id="boton_enviar" class="form_inputs boton_form" type="submit">Enviar</button>
 
-            <button id="boton_enviar_3" class="form_inputs boton_form" type="button">Enviar*3</button>
+            <button id="boton_enviar_3" class="form_inputs boton_form" type="submit">Enviar*3</button>
 
             <button id="boton_reiniciar" class="form_inputs boton_form" type="button">Reiniciar</button>
         </div>
         
     </form>
-
+    <h4 id="resultado-reinicio"></h4>
     <div id="contenedor_tablaD">
         <h3>Usuarios registrados:</h3>
         <table>
@@ -58,12 +60,13 @@
     </div>
     <div>
         <h3>Editar Datos:</h3>
-        <form class="formulario">
+        <h4 id="resultado-edicion"></h4>
+        <form id="formulario-editar" class="formulario">
             <label for="nombre">Nombre:</label>
-            <input type="text"  name="nombre" class="form_inputs" id="nombre_editado" placeholder="Nombre" value="Nombre ej" required>
+            <input type="text"  name="nombre" class="form_inputs" id="nombre_editado" placeholder="Nombre" value="Editado">
 
             <label for="correo">Correo electronico:</label>
-            <input type="email" name="correo" class="form_inputs" id="correo_editado"  placeholder="Correo" value="mail@ej.com" required>
+            <input type="email" name="correo" class="form_inputs" id="correo_editado"  placeholder="Correo" value="editado@ej.com">
 
             <label>Frecuencia de actualizaciones:</label>
             <select name="frecuecia_editado" id="frecuencia_editada">

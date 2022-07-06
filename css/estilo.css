@@ -202,6 +202,7 @@ div.contenedor_img_captcha p#texto_captcha{
     flex-direction: column;
     border-radius: 10px;
     padding: 7px;
+    margin-bottom: 4vh;
     box-shadow: 2px 3px 4px 4px rgba(70,130,180,0.75);
 -webkit-box-shadow: 2px 3px 4px 4px rgba(70,130,180,0.75);
 -moz-box-shadow: 2px 3px 4px 4px rgba(70,130,180,0.75);
@@ -285,6 +286,10 @@ div#contenedor_tablaD{
     box-shadow: 2px 3px 4px 4px rgba(70,130,180,0.75);
 -webkit-box-shadow: 2px 3px 4px 4px rgba(70,130,180,0.75);
 -moz-box-shadow: 2px 3px 4px 4px rgba(70,130,180,0.75);
+}
+
+button#enviar_edicion{
+    display: none;
 }
 
 button.button_toggle{
