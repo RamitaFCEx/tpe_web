@@ -7,8 +7,7 @@ ESTE SITIO FUE DESARROLLADO POR DIAZ MANUEL(C2) Y MEZA RAMIRO(C11) GRUPO 10-----
 }
 
 ::-webkit-scrollbar {
-    height: 12px;
-    width: 4px;
+    width: 20px;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -33,21 +32,19 @@ header{
 }
 
 header div img.logo_OneShot{
-    width: 15%;
-    height: 100%;
-    margin: 0;
+    width: 7%;
 }
 
 header div img.titulo_OneShot{
-    width: 70%;
-    height: 100%;
-    margin: 0;
+    width: 93%;
 }
-
-
 
 .footer{
     height: 6.86vw;
+    display: flex;
+}
+
+header div.titulo {
     display: flex;
 }
 
@@ -56,8 +53,11 @@ nav{
     font-weight: bold;
 }
 
-nav div.menu_desktop{
-    background-color: #35433c;
+.menu_desktop{
+    display: flex;
+    border: 2px solid #000000;
+    justify-content: space-around;
+    
 }
 
 nav div.menu_desktop button{
@@ -72,15 +72,9 @@ nav div.menu_desktop button{
     text-transform: uppercase;
 }
 
-
-.menu_desktop{
-    display: flex;
-    border: 2px solid #000000;
-    justify-content: space-around;
+nav div.menu_desktop button:hover{
+    background-color: rgb(127, 129, 128);
 }
-
-
-
 
 article{
     display: flex;
@@ -109,7 +103,6 @@ footer img{
     box-shadow: 2px 3px 4px 4px rgba(70,130,180,0.75);
 -webkit-box-shadow: 2px 3px 4px 4px rgba(70,130,180,0.75);
 -moz-box-shadow: 2px 3px 4px 4px rgba(70,130,180,0.75);
-    width: 93%;
 }
 
 table{
@@ -143,8 +136,7 @@ article.index_article{/*MUY importante*/
 .seccion_perro{
     display: flex;
     padding: 20px;
-    font-size: smaller;/*prueba*/
-    width: 93%;
+    width: 79vh;
     min-height: 36vh;
     height: auto;
     border-radius: 15px;
@@ -155,8 +147,8 @@ article.index_article{/*MUY importante*/
 }
 
 .foto_perro{
-    width: 40%;/*importante, mejora visual 321-600px width*/
-    height: 60%;/*importante, mejora visual 321-600px width*/
+    width: 40%;
+    max-height: 28vh;
 }
 
 .foto_perro img{
@@ -169,7 +161,7 @@ article.index_article{/*MUY importante*/
 
 .lista_perro{
     width: 60%;/*importante*/
-    padding: 0 0 0 25px;
+    padding: 0px 20px 0px 50px;
 }
 
 .lista_perro h2{
@@ -205,16 +197,12 @@ div.contenedor_img_captcha p#texto_captcha{
 .formulario{
     display: flex;
     flex-direction: column;
+    border-radius: 10px;
     padding: 7px;
     margin-bottom: 4vh;
     box-shadow: 2px 3px 4px 4px rgba(70,130,180,0.75);
 -webkit-box-shadow: 2px 3px 4px 4px rgba(70,130,180,0.75);
 -moz-box-shadow: 2px 3px 4px 4px rgba(70,130,180,0.75);
-}
-
-form.formulario{
-    border-radius: 0;
-    width: 98%;
 }
 
 form.formulario label, form.formulario h4{
@@ -292,66 +280,25 @@ tbody.cuerpo_tablaD tr > td.favoritos {
 div#contenedor_tablaD{
     margin: 40px 0;
     padding: 0.3em 0 0 0.3em;
-    max-width: 100vw;/*importante, hace responsive la tabla*/
-    overflow-x: auto;
-    border-top: 4px solid #4682b4;
-    box-shadow: none;
+    box-shadow: 2px 3px 4px 4px rgba(70,130,180,0.75);
+-webkit-box-shadow: 2px 3px 4px 4px rgba(70,130,180,0.75);
+-moz-box-shadow: 2px 3px 4px 4px rgba(70,130,180,0.75);
 }
 
-button#enviar_edicion, .noPasaFiltro{
+button#enviar_edicion, button.button_toggle, .noPasaFiltro{
     display: none;
 }
 
-div#contenedor_tablaD table{
-    padding: 0;
-    max-width: 100%;/*importante, hace responsive la tabla*/
-}
-button.button_toggle{
-    display: inherit;
-}
 
-button.button_toggle{
-    position: absolute;
-    top: 0;
-    right: 0;
-    height: 10vh;
-    width: 15vw;
-    z-index: 0;
-    background: #4682b4;
-    border: none;
-}
-
-button.button_toggle i{
-    font-size: 5vh;
-    color: #35433c;
-}
-
-header div.titulo {
-    height: 10vh;
-    background-color: #4682b4;
-}
-
-nav div.menu_desktop button:hover{
-    background-color: rgb(127, 129, 128);
-}
-
-.menu_desktop{
-    display: none;
-}
-
-.responsive_display{ 
-    display: flex;
-}
-
-
-@media only screen and (min-width:768px) { 
+@media only screen and (max-width:768px) { 
     /*-----------------Correspondiente al header comun---------------------------------*/
     header div.titulo {
         height: 10vh;
     }
 
     ::-webkit-scrollbar {
-        width: 20px;
+        height: 12px;
+        width: 4px;
     }
 
     header{
@@ -359,35 +306,40 @@ nav div.menu_desktop button:hover{
         top: 0;
     }
     
-    
     header div img.logo_OneShot{
-        width: 7%;
+        width: 15%;
     }
     
     header div img.titulo_OneShot{
-        width: 93%;
-        content: url(../img/vintage_logos4.jpg);
+        width: 70%;
+        content: url(../img/vintage_logos2_celular2.jpg);
     }
-
-    header div.titulo {
-        display: flex;
+    nav div.menu_desktop{
+        background-color: #35433c;
     }
-    button.button_toggle{
-        display: none;
-    }
-    
     .menu_desktop{
-        display: flex;
+        display: none;
     }
   
     button.button_toggle{
+        display: inherit;
         background-color: #4682b4;
         border: none;
     }
-    
-    nav div.menu_desktop{
-        display: flex;
+    button.button_toggle{
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 10vh;
+        width: 15vw;
+        z-index: 0;
     }
+
+    button.button_toggle i{
+        font-size: 5vh;
+        color: #35433c;
+    }
+
    
     .responsive_li{
         margin: 0.2em 0;
@@ -403,41 +355,46 @@ nav div.menu_desktop button:hover{
     } 
 
     footer img{
-        content: url(../img/vintage_logos2_footer.jpg);
+        content: url(../img/vintage_logos2_footer_celular.jpg);
     }
     /*-------------------Correspondiente a index.html----------------------------------*/
-    .seccion_perro{/*Muy importante, se rompen las secciones*/   
-        width: 79vh;
+    .seccion_perro{/*Muy importante, se rompen las secciones*/
+        width: 93%;
+        font-size: smaller;/*prueba*/
     }
 
     .lista_perro{
-        padding: 0px 20px 0px 50px;
+        padding: 0 0 0 25px;
     }
 
     .foto_perro{
-        width: 31%;
-        max-height: 38vh;
+        width: 40%;/*importante, mejora visual 321-600px width*/
+        height: 60%;/*importante, mejora visual 321-600px width*/
     }
     /*--------------------Corresponde a registro.html------------------------------------*/
     form.formulario{
-        border-radius: 10px;
-        width: fit-content;
+        border-radius: 0;
+        width: 98%;
     }
 
-    
+    div#contenedor_tablaD table{
+        padding: 0;
+        max-width: 100%;/*importante, hace responsive la tabla*/
+    }
 
     div#contenedor_tablaD{
-        width: fit-content;
-        padding: 20px;
-        box-shadow: 2px 3px 4px 4px rgba(70,130,180,0.75);
--webkit-box-shadow: 2px 3px 4px 4px rgba(70,130,180,0.75);
--moz-box-shadow: 2px 3px 4px 4px rgba(70,130,180,0.75);
+        max-width: 100vw;/*importante, hace responsive la tabla*/
+        overflow-x: auto;
+        border-top: 4px solid #4682b4;
+        box-shadow: none;
     }
 
     /*--------------------Corresponde a contacto.html------------------------------------*/
     .contenedor_tabla{
-        width: fit-content;
+        width: 93%;
     }
 
-    
+    .responsive_display{ 
+        display: flex;
+    }
 }
