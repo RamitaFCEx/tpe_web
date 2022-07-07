@@ -296,6 +296,10 @@ button.button_toggle{
     display: none;
 }
 
+.noPasaFiltro{
+    display: none;
+}
+
 @media only screen and (max-width:768px) { 
     /*-----------------Correspondiente al header comun---------------------------------*/
     header div.titulo {

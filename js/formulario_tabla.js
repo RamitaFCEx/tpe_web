@@ -1,6 +1,8 @@
 /*-ESTE SITIO FUE DESARROLLADO POR DIAZ MANUEL(C2) Y MEZA RAMIRO(C11) GRUPO 10----------------------------*/
 "use strict";
 
+var url = `https://62b8b677f4cb8d63df61b878.mockapi.io/api/R-OS/usuarios`;
+
 var botonEnviar = document.querySelector("#boton_enviar");
 
 var formularioAEnviar = document.querySelector("#formulario");
@@ -10,7 +12,7 @@ var botonEnviar3 = document.querySelector("#boton_enviar_3");
 botonEnviar3.addEventListener("click", function(e){
     let comprobacion = comprobarCaptcha();
     if (comprobacion === 1){
-        for(let i = 0; i<2;i++){
+        for(let i = 0; i<3;i++){
             botonEnviar.click();//simula clickear 3 veces en el boton enviar
         }
     }
@@ -22,7 +24,7 @@ botonReiniciar.addEventListener("click", async function(){
     let resultadoReinicio = document.querySelector("#resultado-reinicio");
     try{
         resultadoReinicio.innerHTML = "BORRANDO, esto puede demorar unos segundos, no salga de la pagina mientras se realiza la operacion"
-        let listaUsuarios = await fetch(`https://62b8b677f4cb8d63df61b878.mockapi.io/api/R-OS/usuarios`);
+        let listaUsuarios = await fetch(url);
         if (listaUsuarios.ok) {
             let objetoUsuarios = await listaUsuarios.json();
             for(let individuo of (objetoUsuarios)){
@@ -31,7 +33,7 @@ botonReiniciar.addEventListener("click", async function(){
             try{
                 let r=0;
                 while(r<arregloIdes.length){
-                    let response = await fetch(`https://62b8b677f4cb8d63df61b878.mockapi.io/api/R-OS/usuarios/${arregloIdes[r]}`, {
+                    let response = await fetch(`${url}/${arregloIdes[r]}`, {
                     "method" : "DELETE"
                     });
                     r++;
@@ -39,6 +41,7 @@ botonReiniciar.addEventListener("click", async function(){
                 resultadoReinicio.innerHTML = "Base de datos eliminada con exito";
                 document.querySelectorAll(".fila_dinamica").forEach(x => x.remove());
                 console.log("Base de datos eliminada");
+                cargaTabla();
             }catch(error){
                 console.log("Falla de Base de datos eliminada");
             }  
@@ -53,7 +56,6 @@ botonReiniciar.addEventListener("click", async function(){
 function imprimir(e){
     e.preventDefault();
     let formulario = document.querySelector("#formulario");
-    //let tablaDinamica = document.querySelector(".cuerpo_tablaD");//NO USAR
     let comprobacion = comprobarCaptcha();
     let formData = new FormData(formulario);
     //Captura de datos:
@@ -77,13 +79,13 @@ function imprimir(e){
 
 async function agregarUsuario(datosUsuarioNuevo){
     try{
-        let response = await fetch(`https://62b8b677f4cb8d63df61b878.mockapi.io/api/R-OS/usuarios`, {
+        let response = await fetch(`${url}`, {
             "method" : "POST",
             "headers" : {"Content-type" : "application/json"},
             "body" : JSON.stringify(datosUsuarioNuevo)
         });
         if(response.ok){
-            console.log("Usuario agregado con exito");
+            //console.log("Usuario agregado con exito");
             cargaTabla();
             generador();
         }
@@ -95,9 +97,9 @@ async function agregarUsuario(datosUsuarioNuevo){
 ///Datos precargados en tabla dinamica   
 async function cargaTabla(){
     try{
-        let tablaDinamica = document.querySelector(".cuerpo_tablaD");
+        let tablaDinamica = document.querySelector(".cuerpo_tablaD");//elige donde escribir
         tablaDinamica.innerHTML = "------------------Loading...------------------";
-        let response = await fetch("https://62b8b677f4cb8d63df61b878.mockapi.io/api/R-OS/usuarios");
+        let response = await fetch(url);
         if (response.ok) {
             let objetoUsuarios = await response.json();
             tablaDinamica.innerHTML = "";
@@ -113,25 +115,25 @@ async function cargaTabla(){
                     if(j != "id"){
                         fila.appendChild(espacio);//crea la celda
                         espacio.appendChild(contenido);//escribe la celda
-                        if(individuo.fav == true||individuo.fav == "true"){
+                        if(individuo.fav === true || individuo.fav === "true"){
                             espacio.classList.add(`favoritos`);//pinta las celdas favoritas
                         }
                     }
-                    
                 }
                 for(let j=0; j<2; j++){//imprime los botones
                     const espacio = document.createElement("td");//dice que es una celda y pone nombre
                     let contenido =  document.createElement("button");//Crea botones
                     contenido.innerHTML = (j==0)? "Editar":"Borrar";
-                    contenido.classList.add(`${contenido.innerHTML}`);
+                    contenido.classList.add(`${contenido.innerHTML}`);//clase del boton
                     
                     
                     fila.appendChild(espacio);//crea la celda
                     espacio.appendChild(contenido);//escribe la celda
-                    if(espacio.previousSibling.classList[0] === `favoritos`){
+                    if(espacio.previousSibling.classList[0] === `favoritos`){//Si la celda anterior, es amarilla, yo tambien
                         espacio.classList.add(`favoritos`);//pone clase favorito
                     }
                 }
+              
             }
             asignarEventoBorrar();
             asignarEventoEditar();
@@ -147,15 +149,13 @@ function asignarEventoBorrar(){
     let botonBorrar = document.querySelectorAll(".Borrar");
     for(let b=0; b<botonBorrar.length;b++){
        botonBorrar[b].addEventListener('click', async function(){
-        botonBorrar[b].parentElement.parentElement.remove();
-        console.log(botonBorrar[b].parentElement.parentElement.id);
         try{
-            let response = await fetch(`https://62b8b677f4cb8d63df61b878.mockapi.io/api/R-OS/usuarios/${botonBorrar[b].parentElement.parentElement.id}`, {
+            let idUsuario = botonBorrar[b].parentElement.parentElement.id;
+            let response = await fetch(`${url}/${idUsuario}`, {
                 "method" : "DELETE"
             });
             if (response.ok) {
-                
-                console.log(botonBorrar[b].parentElement.parentElement.id);
+                botonBorrar[b].parentElement.parentElement.remove();
                 console.log("Item Eliminado");
             }
         }catch(error){
@@ -174,15 +174,17 @@ function asignarEventoEditar(){
         botonEditar[v].innerHTML = "Editando";
         let nomreEditado = document.querySelector("#nombre_editado").value;
         let correoEditado = document.querySelector("#correo_editado").value;
-        let frecuencia = document.querySelector("#frecuencia_editada").value;
+        let frecuencia;
+        (document.querySelector("#frecuencia_editada").value === "true") ? frecuencia = true : frecuencia = false;
         let usarioEditado = {
             "nombre" : nomreEditado,
             "correo" : correoEditado,
             "fav" : frecuencia
         }
-        if(nomreEditado != "" && correoEditado != ""){
+        if((nomreEditado.charAt(0) >= "A" && nomreEditado.charAt(0) <= "z") && (correoEditado.charAt(0) >= "A" && correoEditado.charAt(0) <= "z")&&(correoEditado.includes("@"))){
             try{
-                let response = await fetch(`https://62b8b677f4cb8d63df61b878.mockapi.io/api/R-OS/usuarios/${botonEditar[v].parentElement.parentElement.id}`, {
+                let idUsuario = botonEditar[v].parentElement.parentElement.id;
+                let response = await fetch(`${url}/${idUsuario}`, {
                     "method" : "PUT",
                     "headers" : {"Content-type" : "application/json"},
                     "body" : JSON.stringify(usarioEditado)
@@ -197,14 +199,12 @@ function asignarEventoEditar(){
             }
         }else{
             botonEditar[v].innerHTML = "Error!!";
-            resultadoEdicion.innerHTML = "**Error de edicion, complete los campos**";
+            resultadoEdicion.innerHTML = "**Error de edicion, complete los campos(Solo letras en primer caracter)**";
         }
        });
     }
 
 }
-
-
 
 function generador(){//ACA SE CREA EL CAPTCHA
     const posiblesCaracteres = ['a', 'g', 'e', '4', 'r', 'p', '6', 'y', 'k','u','8'];
@@ -221,6 +221,7 @@ function generador(){//ACA SE CREA EL CAPTCHA
     ///QUITAR
     let respuestaCodeada = document.querySelector("#respuestaCaptcha");
     respuestaCodeada.value = textoClaveGenerador;
+    ///QUITAR
 }
 
 function comprobarCaptcha(){
@@ -240,10 +241,53 @@ function comprobarCaptcha(){
     }
 }
 
+var filtroFav = document.querySelector("#filtro-fav");
+filtroFav.addEventListener("change",  filtroConjunto);
+
+var filtroGmail = document.querySelector("#filtro-gmail");
+filtroGmail.addEventListener("change",  filtroConjunto);
+
+function filtroConjunto(){
+    let filas = document.querySelectorAll(".fila_dinamica");
+    //console.log("filtro gmail "+filtroGmail.value);//valor que filtra
+    //console.log("filtro fav "+filtroFav.value);//valor que filtra
+    if(filtroGmail.value != "sinUsar" && filtroFav.value != "sinUsar"){
+        // console.log("filtro doble");
+        for (let itera of filas) {
+            let frecuencia = itera.children[2].innerHTML;//valor de los sujetos
+            let gmail = (itera.children[1].innerHTML).includes("gmail");
+
+            if(filtroGmail.value === "gmail" && filtroFav.value === frecuencia){
+                gmail ? itera.classList.remove("noPasaFiltro"):itera.classList.add("noPasaFiltro");
+            }else{
+                (!gmail && filtroFav.value === frecuencia)? itera.classList.remove("noPasaFiltro"): itera.classList.add("noPasaFiltro");
+            }
+        }
+    }else if(filtroGmail.value != "sinUsar" || filtroFav.value != "sinUsar"){
+       // console.log("filtro simple");
+        for (let itera of filas) {
+            let frecuencia = itera.children[2].innerHTML;//valor de los sujetos
+            let gmail = (itera.children[1].innerHTML).includes("gmail");
+            if(filtroGmail.value != "sinUsar"){
+                if(filtroGmail.value === "gmail"){
+                    gmail ? itera.classList.remove("noPasaFiltro"):itera.classList.add("noPasaFiltro");
+                }else{
+                    gmail ? itera.classList.add("noPasaFiltro"):itera.classList.remove("noPasaFiltro");
+                }
+
+            }else{
+                (filtroFav.value === frecuencia) ? itera.classList.remove("noPasaFiltro"): itera.classList.add("noPasaFiltro");;
+            }
+        }
+    }else{
+       // console.log("sin filtro ");
+        for (let itera of filas) {
+                itera.classList.remove("noPasaFiltro");
+        }
+    }
+}
+
+
 
 cargaTabla();
 generador();
-
-
-
-

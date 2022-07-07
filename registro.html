@@ -37,7 +37,7 @@
         <div class="contenedor_botones">
             <button id="boton_enviar" class="form_inputs boton_form" type="submit">Enviar</button>
 
-            <button id="boton_enviar_3" class="form_inputs boton_form" type="submit">Enviar*3</button>
+            <button id="boton_enviar_3" class="form_inputs boton_form" type="button">Enviar*3</button>
 
             <button id="boton_reiniciar" class="form_inputs boton_form" type="button">Reiniciar</button>
         </div>
@@ -49,8 +49,22 @@
         <table>
             <thead>
                 <td>Nombres</td>
-                <td>Correo</td>
-                <td>♥♥</td>
+                <td>
+                    <div>Correo</div>
+                    <select id="filtro-gmail">
+                        <option value="sinUsar"  selected>S/Filtro</option>
+                        <option value="gmail">gmail</option>
+                        <option value="otro">otro</option>
+                    </select>
+                </td>
+                <td>
+                    <div>♥♥</div>
+                    <select id="filtro-fav">
+                        <option value="sinUsar" selected>S/Filtro</option>
+                        <option value="true">true</option>
+                        <option value="false">false</option>
+                    </select>
+                </td>
                 <td>Editar</td>
                 <td>Borrar</td>
             </thead>
